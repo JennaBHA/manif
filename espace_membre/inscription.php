@@ -57,6 +57,9 @@ if ($formSubmitted) {
     unset($_SESSION['mailValue']);
     unset($_SESSION['telephoneValue']);
     unset($_SESSION['mdpValue']);
+
+    header("Location: connexion.php");
+    exit; // Assure que le script s'arrête ici pour la redirection
 }
 ?>
 
