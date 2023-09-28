@@ -6,19 +6,20 @@ if(isset($_POST['envoi'])){
         $mail = htmlspecialchars($_POST['mail']);
         $mdp = sha1($_POST['mdp']);
 
-        $recupPart = $bdd->prepare('SELECT * FROM participant WHERE mail = ? AND mdp = ?');
+        $recupPart = $bdd->prepare('SELECT id, prenom FROM participant WHERE mail = ? AND mdp = ?');
         $recupPart->execute(array($mail, $mdp));
 
         if($recupPart->rowCount() > 0){
+            $donnees = $recupPart->fetch();
             $_SESSION['mail'] = $mail;
             $_SESSION['mdp'] = $mdp;
-            $_SESSION['id'] = $recupPart->fetch()['id'];
+            $_SESSION['id'] = $donnees['id'];
+            $_SESSION['prenom'] = $donnees['prenom']; // Enregistrez le prénom dans la session
             header('Location: index.php');
-        
-        }else{
-            echo "Votre mot de passe ou mail est incorect";
+        } else {
+            echo "Votre mot de passe ou mail est incorrect";
         }
-    }else{
+    } else {
         echo "Veuillez compléter tous les champs";
     }
 }
@@ -33,11 +34,11 @@ if(isset($_POST['envoi'])){
 </head>
 <body>
     <form method="POST" action="" align="center">
-        <input type="text" name="mail" autocomplete="off">
+        <input type="text" name="mail" autocomplete="off" placeholder="Adresse email">
         <br>
-        <input type="password" name="mdp" autocomplete="off">
+        <input type="password" name="mdp" autocomplete="off" placeholder="Mot de passe">
         <br><br>
-        <input type="submit" name="envoi">
+        <input type="submit" name="envoi" value="Se connecter">
     </form>
 </body>
 </html>
