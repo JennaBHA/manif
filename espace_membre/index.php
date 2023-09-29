@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if(!$_SESSION['mdp']){
+    header('Location: connexion.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +15,7 @@ session_start();
 <body>
     <p>Bienvenue dans votre espace <?php echo isset($_SESSION['prenom']) ? $_SESSION['prenom'] : ''; ?></p>
     <a href="deconnexion.php">
+    <a href="afficher.php">Afficher tous les membres</a>
         <button>Se déconnecter</button>
     </a>
 </body>
