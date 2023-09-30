@@ -20,9 +20,14 @@ if (isset($_GET['id'])) {
     $query_utilisateur->execute([$utilisateur_id]);
     $utilisateur = $query_utilisateur->fetch();
 
-    // Insérer l'inscription dans la table "participation"
-    $insert_query = $bdd->prepare("INSERT INTO participations (activite_id, utilisateur_id, nom_activite, nom_utilisateur) VALUES (?, ?, ?, ?)");
-    $insert_query->execute([$activite_id, $utilisateur_id, $activite['titre'], $utilisateur['nom'].' '.$utilisateur['prenom']]);
+// Insérer l'inscription dans la table "participation"
+$insert_query = $bdd->prepare("INSERT INTO participations (activite_id, utilisateur_id, nom_activite, nom_utilisateur) VALUES (?, ?, ?, ?)");
+$insert_query->execute([$activite_id, $utilisateur_id, $activite['titre'], $utilisateur['nom'].' '.$utilisateur['prenom']]);
+
+// Message de confirmation
+$_SESSION['inscription_reussie'] = true; // Définissez une variable de session
+header("Location: {$_SERVER['HTTP_REFERER']}");
+exit();
 
     // Rediriger l'utilisateur vers la page précédente
     header("Location: {$_SERVER['HTTP_REFERER']}");
