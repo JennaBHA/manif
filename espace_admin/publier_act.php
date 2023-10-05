@@ -34,6 +34,8 @@ if(isset($_POST['envoie'])) {
     <input type="text" name="titre" placeholder="Titre">
         <br>
         <textarea name="description" placeholder="Description"></textarea>
+        <br>
+        <input type="date" name="creneau" autocomplete="off" placeholder="creneau">
         <br><br>
         <input type="submit" name="envoie">
         <a href="index.php" class="envoie-button">Retour</a>

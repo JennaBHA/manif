@@ -17,7 +17,7 @@ if (!$_SESSION['mdp']) {
 <body>
     <!-- Menu en haut -->
     <ul class="menu">
-        <li><a href="../espace_membre/afficher_part.php"><!-- A FAIRE !! -->Afficher les activités</a></li>
+        <li><a href="../espace_membre/afficher_part.php"><!-- A FAIRE !! -->Activités</a></li>
         <li><a href="../espace_admin/deconnexion.php">deconnexion</a></li>
     </ul>
 

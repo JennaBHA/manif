@@ -21,6 +21,7 @@ if(!$_SESSION['mdp']){
         <div class="activite" style="border: 1px solid black">
             <h1><?= $activite['titre'];?></h1> <!--Afficher le titre de la base de donnée quand on ajoute une activité-->
             <p><?= $activite['description'];?></p> <!--Afficher la description de la base de donnée quand on ajoute une actvité-->
+            <p><?= $date['date'];?></p>
             <a href="supprimer_act.php?id=<?= $activite['id']; ?>">
                 <button style="color: black; background-color: red;">Supprimer l'activite</button>
             </a>

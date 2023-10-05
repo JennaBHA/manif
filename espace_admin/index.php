@@ -19,10 +19,10 @@ if (!$_SESSION['mdp']) {
     <!-- Menu en haut -->
     <ul class="menu">
         <li><a href="../espace_admin/membre.php">Afficher les membres</a></li>
-        <li><a href="../espace_membre/participation.php">Afficher les participations</a></li>
+        <li><a href="../espace_admin/activite.php">Afficher les participations</a></li>
         <li><a href="publier_act.php">Publier une nouvelle activité</a></li>
         <li><a href="activite.php">Afficher les activités</a></li>
-        <li><a href="../espace_membre/deconnexion.php">deconnexion</a></li>
+        <li><a href="../espace_admin/deconnexion.php">deconnexion</a></li>
     </ul>
 
     <h1>Bienvenu dans votre espace Administrateur</h1>

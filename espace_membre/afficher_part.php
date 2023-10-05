@@ -20,8 +20,8 @@ if (!isset($_SESSION['mdp'])) {
     while ($activite = $recupAct->fetch()) {
         ?>
         <div class="activite" style="border: 1px solid black">
-            <h1><?= $activite['titre']; ?></h1> <!-- Afficher le titre de la base de donnée quand on ajoute une activité-->
-            <p><?= $activite['description']; ?></p> <!-- Afficher la description de la base de donnée quand on ajoute une actvité-->
+            <h1><?= $activite['titre']; ?></h1> 
+            <p><?= $activite['description']; ?></p> 
             <a href="../espace_admin/participer.php?id=<?= $activite['id']; ?>">
                 <button style="color: black; background-color: red;" onclick="alert('Votre participation a été prise en compte')">Participer</button>
             </a>
@@ -30,6 +30,6 @@ if (!isset($_SESSION['mdp'])) {
         <?php
     }
     ?>
-    <a href="../espace_admin/index.php" class="envoie-button">retour</a>
+    <a href="../espace_membre/index.php" class="envoie-button">retour</a>
 </body>
 </html>
