@@ -30,15 +30,19 @@ if(isset($_POST['envoi'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/connexion_membre.css">
     <title>connexion</title>
 </head>
 <body>
     <form method="POST" action="" align="center">
+        <h2>Connexion Membre</h2>
         <input type="text" name="mail" autocomplete="off" placeholder="Adresse email">
         <br>
         <input type="password" name="mdp" autocomplete="off" placeholder="Mot de passe">
         <br><br>
         <input type="submit" name="envoi" value="Se connecter">
+        <a href="../espace_admin/accueil.php" class="envoie-button">Accueil</a>
+        <p>Vous êtes pas encore inscrit ? <a href="../espace_membre/inscription.php">Inscrivez-vous !</a></p>
     </form>
 </body>
 </html>

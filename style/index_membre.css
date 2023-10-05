@@ -1,0 +1,61 @@
+/* Réinitialisation des styles par défaut du navigateur */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Style de base pour le corps de la page */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Style pour le titre de la page */
+  h1 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  
+  /* Style pour les liens */
+  a {
+    text-decoration: none;
+    color: #000000;
+    margin: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out; /* Animation de changement de couleur */
+  }
+  
+  a:hover {
+    color: #ff0000; /* Nouvelle couleur au survol */
+    text-decoration: underline;
+  }
+  
+  /* Style pour le message de bienvenue */
+  p {
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Style pour les boutons */
+  .button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out; /* Animation de changement de couleur */
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Nouvelle couleur au survol */
+  }
+  

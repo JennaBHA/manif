@@ -10,6 +10,7 @@ if(!$_SESSION['mdp']){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/afficher_membre.css">
     <title>Afficher tous les membres</title>
 </head>
 <body>
@@ -23,5 +24,6 @@ if(!$_SESSION['mdp']){
         }
     ?>
     <!-- fin afficher tous les membres  -->
+    <a href="../espace_admin/index.php" style="text-decoration: none; font-weight: bold; margin-bottom: 10px; display: block;">Retour</a>
 </body>
 </html>

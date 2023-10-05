@@ -10,6 +10,7 @@ if(!$_SESSION['mdp']){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/afficher_act.css">
     <title>Afficher les activités</title>
 </head>
 <body>
@@ -32,5 +33,6 @@ if(!$_SESSION['mdp']){
         <?php
     }
     ?>
+    <a href="../espace_admin/index.php" class="envoie-button">retour</a>
 </body>
 </html>

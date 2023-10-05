@@ -1,0 +1,62 @@
+/* CSS pour le nom et prénom de la personne connectée */
+#user-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+    text-align: right;
+}
+
+/* Style pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour le titre */
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    color: #333;
+}
+
+/* Style pour le menu */
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+}
+
+ul.menu li {
+    float: left;
+}
+
+ul.menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.menu li a:hover {
+    background-color: #555;
+}
+
+/* Style pour les liens du menu */
+ul.menu li a:link,
+ul.menu li a:visited {
+    background-color: #333;
+}
+
+/* Style pour les liens actifs du menu */
+ul.menu li a:active,
+ul.menu li a.active {
+    background-color: #4CAF50;
+    color: white;
+}

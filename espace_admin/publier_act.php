@@ -25,15 +25,18 @@ if(isset($_POST['envoie'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/publier_act.css">
     <title>Publier une activité</title>
 </head>
 <body>
     <form method="POST" action="">
-        <input type="text" name="titre">
+    <h1>Modifier l'activité</h1>
+    <input type="text" name="titre" placeholder="Titre">
         <br>
-        <textarea name="description"></textarea>
+        <textarea name="description" placeholder="Description"></textarea>
         <br><br>
         <input type="submit" name="envoie">
+        <a href="index.php" class="envoie-button">Retour</a>
     </form>
 </body>
 </html>

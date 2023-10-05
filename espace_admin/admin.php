@@ -1,24 +1,25 @@
 <?php
 session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '');
 
-if (!$_SESSION['mdp']) {
+if (!isset($_SESSION['mdp'])) {
     header('Location: connexion.php');
+    exit(); // Arrête l'exécution du script après la redirection
 }
 
 // Vérifier si l'utilisateur est un administrateur
-$utilisateur_id = $_SESSION['utilisateur_id'];
-$query_admin = $bdd->prepare("SELECT est_admin FROM utilisateurs WHERE id = ?");
-$query_admin->execute([$utilisateur_id]);
-$utilisateur = $query_admin->fetch();
+$participant_id = $_SESSION['participant_id']; // Utilisez la variable correcte
+$query_admin = $bdd->prepare("SELECT * FROM participant WHERE id = ?");
+$query_admin->execute([$participant_id]); // Utilisez $participant_id au lieu de $id
+$participant = $query_admin->fetch();
 
-if (!$utilisateur || $utilisateur['est_admin'] != 1) {
-    header('Location: accueil.php'); // Rediriger vers la page d'accueil par exemple
+if (!$participant || $participant['id'] != 1) {
+    header('Location: connexion.php'); // Rediriger vers la page d'accueil par exemple
     exit();
 }
 
 // Récupérer les participations à afficher
-$participations_query = $bdd->query('SELECT * FROM participations');
+$participations_query = $bdd->query('SELECT * FROM participations'); // Assurez-vous que la table est correcte
 
 ?>
 
