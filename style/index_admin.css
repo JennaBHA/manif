@@ -1,4 +1,21 @@
-/* CSS pour le nom et prénom de la personne connectée */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+/* Géneral*/
+* {
+    margin: 0;
+	padding:0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	outline:none;
+}
+
+body {
+	font-size:var(--font-size);
+	font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
 #user-info {
     position: absolute;
     top: 10px;
@@ -7,56 +24,123 @@
     color: #333;
     text-align: right;
 }
+/* ---------------------------------------------------------------------------------------------------------------- */
 
-/* Style pour le corps de la page */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-}
-
-/* Style pour le titre */
+/* Style titre et le reste */
 h1 {
     text-align: center;
-    margin-top: 50px;
     color: #333;
 }
 
-/* Style pour le menu */
-ul.menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #333;
-    overflow: hidden;
+ul {
+	list-style:none;
+  }
+  
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* Variables */
+:root {
+  --font-size:1rem;
+}
+.light-mode {
+  --navbar-color: #222;
+  --navbar-bg-color: #F0F0F0;  
+}
+.dark-mode {
+  --navbar-color: #FFF;
+  --navbar-bg-color: #000;  
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+.main-content {
+  padding:1rem;
 }
 
-ul.menu li {
-    float: left;
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* Style pour la section des dernières activités */
+.latest-activities {
+    background-color: #3333336b;
+	border-radius: 5% 5% 5%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    width: 500px; /* Définissez la largeur souhaitée */
+    display: inline-block; /* Changez la valeur pour inline-block */
 }
 
-ul.menu li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+/* Style pour le titre "Dernières activités publiées" */
+.latest-activities h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-ul.menu li a:hover {
-    background-color: #555;
+
+/* Style pour chaque activité */
+.activite {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
-/* Style pour les liens du menu */
-ul.menu li a:link,
-ul.menu li a:visited {
-    background-color: #333;
+/* Style pour le titre de l'activité */
+.activite h3 {
+    font-size: 18px;
+    color: #333;
 }
 
-/* Style pour les liens actifs du menu */
-ul.menu li a:active,
-ul.menu li a.active {
-    background-color: #4CAF50;
-    color: white;
+/* Style pour la description de l'activité */
+.activite p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Style pour la date de l'activité */
+.activite p:last-child {
+    font-size: 14px;
+    color: #999;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* Style pour la section des dernières participant */
+.latest-membre {
+    background-color: #3333336b;
+	border-radius: 5% 5% 5%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    width: 500px; /* Définissez la largeur souhaitée */
+    display: inline-block; /* Changez la valeur pour inline-block */
+}
+
+/* Style pour le titre "Dernières activités publiées" */
+.latest-membre h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+/* Style pour chaque activité */
+.membre {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Style pour le titre de l'activité */
+.membre h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Style pour la description de l'activité */
+.membre p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Style pour la date de l'activité */
+.membre p:last-child {
+    font-size: 14px;
+    color: #999;
 }

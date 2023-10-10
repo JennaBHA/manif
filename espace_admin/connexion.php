@@ -9,6 +9,8 @@ if(isset($_POST['valider'])){
         $mdp_saisi = htmlspecialchars($_POST['mdp']);
 
         if($pseudo_saisi == $pseudo_par_defaut AND $mdp_saisi == $mdp_par_defaut){
+            // $_SEESION["pseudo"] = $pseudo;
+            $_SEESION['pseudo'] = $pseudo_saisi;
             $_SESSION['mdp'] = $mdp_saisi;
             header('Location: index.php');
         }else{
