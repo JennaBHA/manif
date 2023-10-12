@@ -118,4 +118,32 @@
     .navbar__link:hover > a::after {
       width:100%;
     }
+
+
+
+      /* Style pour la section des dernières activités */
+    /* .latest-membre {
+      background-color: #3333336b;
+      border-radius: 5% 5% 5%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      width: 500px; /* Définissez la largeur souhaitée */
+      /* display: inline-block; Changez la valeur pour inline-block */
+      /* margin-top:80px; */
+      /* margin-left:150px; */
+  /* } */
+
+
+      /* Style pour la section des dernier membres ajouter
+      .latest-activities {
+        background-color: #3333336b;
+        border-radius: 5% 5% 5%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        width: 500px; /* Définissez la largeur souhaitée */
+        /* display: inline-block; Changez la valeur pour inline-block */
+    /* }  */
+
   }

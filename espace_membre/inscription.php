@@ -78,7 +78,7 @@ if ($formSubmitted) {
 </head>
 <body>
     <form method="POST" action="" align="center">
-        <h2>Connexion</h2>
+        <h2>Inscription</h2>
         <input type="text" name="nom" autocomplete="off" placeholder="Nom" value="<?php echo isset($_SESSION['nomValue']) ? $_SESSION['nomValue'] : ''; ?>">
         <br>
         <span class="error-message">

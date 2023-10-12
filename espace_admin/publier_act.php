@@ -13,7 +13,7 @@ if(isset($_POST['envoie'])) {
         $inserAct = $bdd->prepare('INSERT INTO activite(titre, description) VALUES(?, ?)');
         $inserAct->execute(array($titre, $description));
 
-        echo "L'article a bien été envoyé"; 
+        echo "L'activité a bien été envoyé"; 
     } else {
         echo "Veuillez compléter tous les champs";
     }

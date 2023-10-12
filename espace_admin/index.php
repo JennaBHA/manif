@@ -19,7 +19,7 @@ if (!$_SESSION['mdp']) {
 <body>
     <!--Menu-->
     <nav class="navbar dark-mode" role="navigation">
-    <div class="navbar__logo"> <//?php $_SESSION['pseudo']; ?> Admin </div>    
+    <div class="navbar__logo"> <//?php echo $_SESSION['id']; ?></div>    
     <ul class="navbar__links">
       <li class="navbar__link first"><a href="../espace_admin/membre.php">Afficher les membres</a></li>
       <li class="navbar__link third"><a href="../espace_admin/activite.php">Afficher les participations</a></li>
