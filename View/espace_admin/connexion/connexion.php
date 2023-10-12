@@ -12,7 +12,7 @@ if(isset($_POST['valider'])){
             // $_SEESION["pseudo"] = $pseudo;
             $_SEESION['pseudo'] = $pseudo_saisi;
             $_SESSION['mdp'] = $mdp_saisi;
-            header('Location: index.php');
+            header('Location: ../index.php');
         }else{
             echo "Votre mot de passe est incorrect";
         }
@@ -27,7 +27,7 @@ if(isset($_POST['valider'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/connexion_admin.css">
+    <link rel="stylesheet" href="../../style/style_admin/connexion_admin.css">
     <title>Connexion</title>
 </head>
 <body>
@@ -38,7 +38,7 @@ if(isset($_POST['valider'])){
         <input type="password" name="mdp" autocomplete="off" placeholder="Mot de passe">
         <br><br>
         <input type="submit" name="valider">
-        <a href="../espace_admin/accueil.php" class="envoie-button">Accueil</a>
+        <a href="../accueil.php" class="envoie-button">Accueil</a>
     </form>
 </body>
 </html>

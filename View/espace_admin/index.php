@@ -2,7 +2,7 @@
 // Sécuriser le site pour que seule l'admin puisse y accéder
 session_start();
 if (!$_SESSION['mdp']) {
-    header('Location: ../espace_admin/connexion.php');
+    header('Location: ../espace_admin/connexion/connexion.php');
 }
 ?>
 
@@ -11,9 +11,9 @@ if (!$_SESSION['mdp']) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\style\index_admin.css">
-    <link rel="stylesheet" href="..\style\navbar.css">
-    <link rel="stylesheet" href="..\style\.css">
+    <link rel="stylesheet" href="../style/index_admin.css">
+    <link rel="stylesheet" href="../style/navbar.css">
+    <!-- <link rel="stylesheet" href="../style/$_COOKIE"> -->
     <title>Home</title>
 </head>
 <body>
@@ -22,10 +22,10 @@ if (!$_SESSION['mdp']) {
     <div class="navbar__logo"> <//?php echo $_SESSION['id']; ?></div>    
     <ul class="navbar__links">
       <li class="navbar__link first"><a href="../espace_admin/membre.php">Afficher les membres</a></li>
-      <li class="navbar__link third"><a href="../espace_admin/activite.php">Afficher les participations</a></li>
-      <li class="navbar__link four"><a href="publier_act.php">Publier une nouvelle activité</a></li>
-      <li class="navbar__link fifth"><a href="activite.php">Afficher les activités</a></li>
-      <li class="navbar__link six"><a href="../espace_admin/deconnexion.php">deconnexion</a></li>
+      <li class="navbar__link third"><a href="../espace_admin/activite/activite.php">Afficher les participations</a></li>
+      <li class="navbar__link four"><a href="../espace_admin/update/publier_act.php">Publier une nouvelle activité</a></li>
+      <li class="navbar__link fifth"><a href="../espace_admin/activite/activite.php">Afficher les activités</a></li>
+      <li class="navbar__link six"><a href="../espace_admin/connexion/connexion.php">Deconnexion</a></li>
     </ul>   
     <button class="burger">
       <span class="bar"></span>  
@@ -54,7 +54,7 @@ if (!$_SESSION['mdp']) {
         echo '</div>';
     }
     ?>
-    <a href="activite.php">Afficher plus</a>
+    <a href="../espace_admin/activite/activite.php">Afficher plus</a>
 </div>
 <!--------------------------------------------------------------------------------------------------------------------------------------->
 <div class="latest-membre">
@@ -76,7 +76,7 @@ if (!$_SESSION['mdp']) {
         echo '</div>';
     }
     ?>
-    <a href="membre.php">Afficher plus</a>
+    <a href="../espace_admin/membre.php">Afficher plus</a>
 </div>
 
 </main>

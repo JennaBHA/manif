@@ -2,7 +2,7 @@
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
 if(!$_SESSION['mdp']){
-    header('Location: connexion.php');
+    header('Location: ../espace_admin/connexion/connexion.php');
 }
 
 if(isset($_POST['envoie'])) {
@@ -25,12 +25,12 @@ if(isset($_POST['envoie'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/publier_act.css">
+    <link rel="stylesheet" href="../../style/style_admin/publier_act.css">
     <title>Publier une activité</title>
 </head>
 <body>
     <form method="POST" action="">
-    <h1>Modifier l'activité</h1>
+    <h1>Publier une activité</h1>
     <input type="text" name="titre" placeholder="Titre">
         <br>
         <textarea name="description" placeholder="Description"></textarea>
@@ -38,7 +38,7 @@ if(isset($_POST['envoie'])) {
         <input type="date" name="creneau" autocomplete="off" placeholder="creneau">
         <br><br>
         <input type="submit" name="envoie">
-        <a href="index.php" class="envoie-button">Retour</a>
+        <a href="../index.php" class="envoie-button">Retour</a>
     </form>
 </body>
 </html>

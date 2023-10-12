@@ -68,7 +68,7 @@ if ($formSubmitted) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/inscription.css">
+    <link rel="stylesheet" href="../../style/inscription.css">
     <title>Inscription</title>
     <style>
         .error-message {
@@ -110,8 +110,8 @@ if ($formSubmitted) {
         </span>
         <br><br>
         <input type="submit" name="envoie">
-        <a href="../espace_admin/accueil.php" class="envoie-button">Accueil</a>
-        <p>Vous avez déjà un compte ? <a href="../espace_membre/connexion.php">Connectez-vous</a></p>
+        <a href="../../espace_admin/accueil.php" class="envoie-button">Accueil</a>
+        <p>Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous</a></p>
     </form>
 
     <script>

@@ -12,7 +12,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         $bannirUser = $bdd->prepare('DELETE FROM participant WHERE id = ?');
         $bannirUser->execute(array($getid));
         
-        header('Location: membre.php');
+        header('Location: ../membre.php');
         exit(); 
     } else {
         echo "Aucun membre n'a été trouvé";

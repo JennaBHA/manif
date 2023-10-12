@@ -16,7 +16,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 
             $updateAct = $bdd->prepare('UPDATE activite SET titre = ?, description = ? WHERE id = ?');
             $updateAct->execute(array($titre_saisi, $description_saisi, $getid));
-            header('Location: activite.php');
+            header('Location: ../activite/activite.php');
         }
 
     }else{
@@ -32,7 +32,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/modifier_act.css">
+    <link rel="stylesheet" href="../../style/style_admin/modifier_act.css">
     <title>Modifier l'article</title>
 </head>
 <body>

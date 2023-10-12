@@ -19,7 +19,7 @@ if(!$_SESSION['mdp']){
         $recupUsers = $bdd->query('SELECT * FROM participant');
         while($user = $recupUsers->fetch()){
             ?>
-                <p><?= $user['prenom']; ?> <?= $user['nom']; ?> <a href="bannir.php?id=<?= $user['id']; ?>" style="color: red; text-decoration: none">Bannir le membre</a></p>
+                <p><?= $user['prenom']; ?> <?= $user['nom']; ?> <a href="../espace_admin/activite/bannir.php?id=<?= $user['id']; ?>" style="color: red; text-decoration: none">Bannir le membre</a></p>
             <?php
         }
     ?>

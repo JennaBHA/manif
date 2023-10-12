@@ -2,7 +2,7 @@
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
 if (!$_SESSION['mdp']) {
-    header('Location: connexion.php');
+    header('Location: ../espace_admin/connexion/connexion.php');
 }
 
 if (isset($_GET['id'])) {

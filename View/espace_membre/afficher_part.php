@@ -2,7 +2,7 @@
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
 if (!isset($_SESSION['mdp'])) {
-    header('Location: connexion.php');
+    header('Location: ../connexion/connexion.php');
     exit(); // Assurez-vous que le script se termine après la redirection
 }
 ?>
@@ -22,7 +22,7 @@ if (!isset($_SESSION['mdp'])) {
         <div class="activite" style="border: 1px solid black">
             <h1><?= $activite['titre']; ?></h1> 
             <p><?= $activite['description']; ?></p> 
-            <a href="../espace_admin/participer.php?id=<?= $activite['id']; ?>">
+            <a href="../espace_membre/participation.php?id=<?= $activite['id']; ?>">
                 <button style="color: black; background-color: red;" onclick="alert('Votre participation a été prise en compte')">Participer</button>
             </a>
         </div>
@@ -30,6 +30,6 @@ if (!isset($_SESSION['mdp'])) {
         <?php
     }
     ?>
-    <a href="../espace_membre/index.php" class="envoie-button">retour</a>
+    <a href="index.php" class="envoie-button">retour</a>
 </body>
 </html>

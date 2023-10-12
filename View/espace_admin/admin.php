@@ -3,7 +3,7 @@ session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '');
 
 if (!isset($_SESSION['mdp'])) {
-    header('Location: connexion.php');
+    header('Location: ../espace_admin/connexion/connexion.php');
     exit(); // Arrête l'exécution du script après la redirection
 }
 
@@ -14,7 +14,7 @@ $query_admin->execute([$participant_id]); // Utilisez $participant_id au lieu de
 $participant = $query_admin->fetch();
 
 if (!$participant || $participant['id'] != 1) {
-    header('Location: connexion.php'); // Rediriger vers la page d'accueil par exemple
+    header('Location: ../espace_admin/connexion/connexion.php');
     exit();
 }
 
