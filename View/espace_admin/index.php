@@ -11,8 +11,8 @@ if (!$_SESSION['mdp']) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/index_admin.css">
-    <link rel="stylesheet" href="../style/navbar.css">
+    <link rel="stylesheet" href="../style/style_admin/index_admin.css">
+    <link rel="stylesheet" href="../style/general/navbar.css">
     <!-- <link rel="stylesheet" href="../style/$_COOKIE"> -->
     <title>Home</title>
 </head>
@@ -21,24 +21,26 @@ if (!$_SESSION['mdp']) {
     <nav class="navbar dark-mode" role="navigation">
     <div class="navbar__logo"> <//?php echo $_SESSION['id']; ?></div>    
     <ul class="navbar__links">
-      <li class="navbar__link first"><a href="../espace_admin/membre.php">Afficher les membres</a></li>
-      <li class="navbar__link third"><a href="../espace_admin/activite/activite.php">Afficher les participations</a></li>
-      <li class="navbar__link four"><a href="../espace_admin/update/publier_act.php">Publier une nouvelle activité</a></li>
-      <li class="navbar__link fifth"><a href="../espace_admin/activite/activite.php">Afficher les activités</a></li>
-      <li class="navbar__link six"><a href="../espace_admin/connexion/connexion.php">Deconnexion</a></li>
+      <li class="navbar__link first link link_underline"><a href="../espace_admin/membre.php">Afficher les membres</a></li>
+      <li class="navbar__link third link link_underline"><a href="../espace_admin/activite/activite.php">Afficher les participations</a></li>
+      <li class="navbar__link four link link_underline"><a href="../espace_admin/update/publier_act.php">Publier une nouvelle activité</a></li>
+      <li class="navbar__link fifth link link_underline"><a href="../espace_admin/activite/activite.php">Afficher les activités</a></li>
+      <li class="navbar__link six link link_underline"><a href="../espace_admin/connexion/connexion.php">Deconnexion</a></li>
     </ul>   
-    <button class="burger">
-      <span class="bar"></span>  
-    </button>   
+    <div class="burger-container">
+        <button class="burger">
+          <span class="bar"></span>  
+        </button>   
+    </div>
   </nav>
   <main class="main-content" role="main">
     <h1> Bienvenue dans votre espace Administrateur </h1>
     <br>
     <!--Fin du menu-->
 <!--------------------------------------------------------------------------------------------------------------------------------------->
-<div class="latest-activities">
+<!-- <div class="latest-activities">
     <h2>Dernières activités publiées :</h2>
-    <?php
+    <//?php
     // Connexion à la base de données (assurez-vous que cette partie est correcte)
     $bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
 
@@ -55,11 +57,11 @@ if (!$_SESSION['mdp']) {
     }
     ?>
     <a href="../espace_admin/activite/activite.php">Afficher plus</a>
-</div>
+</div> -->
 <!--------------------------------------------------------------------------------------------------------------------------------------->
-<div class="latest-membre">
+<!-- <div class="latest-membre">
     <h2>Derniers participant inscrit :</h2>
-    <?php
+    <//?php
     // Connexion à la base de données (assurez-vous que cette partie est correcte)
     $bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
 
@@ -77,7 +79,7 @@ if (!$_SESSION['mdp']) {
     }
     ?>
     <a href="../espace_admin/membre.php">Afficher plus</a>
-</div>
+</div> -->
 
 </main>
 

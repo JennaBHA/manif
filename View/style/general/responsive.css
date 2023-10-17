@@ -10,16 +10,23 @@
       position:absolute;
       top:65px;
       right:0;     
-      background:var(--navbar-bg-color);     
       transform: translateX(110%);
       transition: all .5s ease-in-out;
     }
+
+    .navbar__links li a {
+      background: #000;
+      color: red;
+    }
+
     .show-nav .navbar__links { 
       
       width:100vw;    
       transform: translateX(0);
     } 
     .navbar__link {    
+      background-color: black;
+      color: white;
       transform: translateX(101%);
       transition: all .5s ease-in-out;
     }

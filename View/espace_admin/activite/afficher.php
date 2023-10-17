@@ -14,11 +14,17 @@ if (isset($_GET['id'])) {
     $activite = $activite_query->fetch();
 
     // Récupérer la liste des participants
-    $participants_query = $bdd->prepare("SELECT utilisateur.nom, utilisateur.prenom FROM inscription_activite 
-                                         JOIN utilisateur ON inscription_activite.utilisateur_id = utilisateur.id 
-                                         WHERE inscription_activite.activite_id = ?");
-    $participants_query->execute([$activite_id]);
-    $participants = $participants_query->fetchAll();
+    // $participants_query = $bdd->prepare("SELECT utilisateur.nom, utilisateur.prenom FROM inscription_activite 
+    //                                      JOIN utilisateur ON inscription_activite.utilisateur_id = utilisateur.id 
+    //                                      WHERE inscription_activite.activite_id = ?");
+    // $participants_query->execute([$activite_id]);
+    // $participants = $participants_query->fetchAll();
+
+    $activite_id = 123; // Remplacez 123 par la valeur souhaitée
+    $stmt = $pdo->prepare("SELECT u.nom, u.prenom FROM inscription_activite AS ia JOIN utilisateur AS u ON ia.utilisateur_id = u.id WHERE ia.activite_id = ?");
+    $stmt->bindParam(1, $activite_id, PDO::PARAM_INT);
+    $stmt->execute();
+
 } else {
     header('Location: afficher_part.php');
     exit();
