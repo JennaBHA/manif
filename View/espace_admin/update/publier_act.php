@@ -13,9 +13,9 @@ if(isset($_POST['envoie'])) {
         $inserAct = $bdd->prepare('INSERT INTO activite(titre, description) VALUES(?, ?)');
         $inserAct->execute(array($titre, $description));
 
-        echo "L'activité a bien été envoyé"; 
+        $message = '<p style="color: green;">L\'activité a bien été envoyé</p>';
     } else {
-        echo "Veuillez compléter tous les champs";
+        $message = '<p style="color: red;">Veuillez compléter tous les champs</p>';
     }
 }
 ?>
@@ -26,19 +26,33 @@ if(isset($_POST['envoie'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style/style_admin/publier_act.css">
+    <link rel="stylesheet" href="../../style/general/bouton.css">
     <title>Publier une activité</title>
 </head>
 <body>
     <form method="POST" action="">
-    <h1>Publier une activité</h1>
-    <input type="text" name="titre" placeholder="Titre">
+        <h1>Publier une activité</h1>
+        <input type="text" name="titre" placeholder="Titre">
         <br>
         <textarea name="description" placeholder="Description"></textarea>
         <br>
-        <input type="date" name="creneau" autocomplete="off" placeholder="creneau">
+        <input type="time" name="creneau" autocomplete="off" placeholder="Créneau">
         <br><br>
-        <input type="submit" name="envoie">
-        <a href="../index.php" class="envoie-button">Retour</a>
+        <div class="button-container">
+            <button class="button" type="submit" name="envoie">Envoie</button>
+            <a href="../index.php" class="button" id="btn">Retour</a>
+        </div>
     </form>
+    
+    <button class="button1" role="button">Activité -&gt;</button>
+
+    <!-- Message container -->
+    <div id="message-container">
+        <?php
+        if(isset($message)) {
+            echo $message;
+        }
+        ?>
+    </div>
 </body>
 </html>

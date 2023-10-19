@@ -13,26 +13,27 @@ if (!$_SESSION['mdp']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style_admin/index_admin.css">
     <link rel="stylesheet" href="../style/general/navbar.css">
-    <!-- <link rel="stylesheet" href="../style/$_COOKIE"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
     <title>Home</title>
 </head>
 <body>
-    <!--Menu-->
-    <nav class="navbar dark-mode" role="navigation">
-    <div class="navbar__logo"> <//?php echo $_SESSION['id']; ?></div>    
-    <ul class="navbar__links">
-      <li class="navbar__link first link link_underline"><a href="../espace_admin/membre.php">Afficher les membres</a></li>
-      <li class="navbar__link third link link_underline"><a href="../espace_admin/activite/activite.php">Afficher les participations</a></li>
-      <li class="navbar__link four link link_underline"><a href="../espace_admin/update/publier_act.php">Publier une nouvelle activité</a></li>
-      <li class="navbar__link fifth link link_underline"><a href="../espace_admin/activite/activite.php">Afficher les activités</a></li>
-      <li class="navbar__link six link link_underline"><a href="../espace_admin/connexion/connexion.php">Deconnexion</a></li>
-    </ul>   
-    <div class="burger-container">
-        <button class="burger">
-          <span class="bar"></span>  
-        </button>   
-    </div>
-  </nav>
+  <header>
+    <nav>
+        <ul class='nav-bar'>
+            <li class='logo'><a href='#'><img src='../background/logo.png'/></a></li>
+            <input type='checkbox' id='check' />
+            <span class="menu">
+                <li><a href="../espace_admin/membre.php">Afficher les membres</a></li>
+                <li><a href="../espace_admin/activite/activite.php">Afficher les participations</a></li>
+                <li><a href="../espace_admin/update/publier_act.php">Publier une nouvelle activité</a></li>
+                <li><a href="../espace_admin/activite/activite.php">Afficher les activités</a></li>
+                <li><a href="../espace_admin/connexion/connexion.php">Deconnexion</a></li>
+                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+            </span>
+            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+        </ul>
+    </nav>
+    </header>
   <main class="main-content" role="main">
     <h1> Bienvenue dans votre espace Administrateur </h1>
     <br>
