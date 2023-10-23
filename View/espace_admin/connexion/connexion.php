@@ -35,7 +35,6 @@ if (isset($_POST['valider'])) {
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../style/general/bouton.css">
-
     <link rel="stylesheet" href="../../style/style_admin/connexion_admin.css">
     <title>Connexion</title>
 </head>

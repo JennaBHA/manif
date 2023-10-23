@@ -1,61 +1,139 @@
-/* Réinitialisation des styles par défaut du navigateur */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+/* Géneral*/
 * {
     margin: 0;
-    padding: 0;
+    padding:0;
     box-sizing: border-box;
-  }
-  
-  /* Style de base pour le corps de la page */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    outline:none;
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Helvetica', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+#user-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+    text-align: right;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+
+/* Style titre et le reste */
+h1 {
     text-align: center;
-    padding: 20px;
-  }
-  
-  /* Style pour le titre de la page */
-  h1 {
-    font-size: 28px;
-    color: #000000;
+    color: #333;
+}
+
+ul {
+    list-style:none;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+
+.main-content {
+padding:1rem;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+
+/* Style pour la section des dernières activités */
+.latest-activities {
+    background-color: #3333336b;
+    border-radius: 5% 5% 5%;
+    padding: 10px;
+    border: 1px solid #ccc;
     margin-bottom: 20px;
-  }
-  
-  /* Style pour les liens */
-  a {
-    text-decoration: none;
-    color: #000000;
-    margin: 10px;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out; /* Animation de changement de couleur */
-  }
-  
-  a:hover {
-    color: #ff0000; /* Nouvelle couleur au survol */
-    text-decoration: underline;
-  }
-  
-  /* Style pour le message de bienvenue */
-  p {
-    font-size: 20px;
-    color: #000000;
+    width: 500px; /* Définissez la largeur souhaitée */
+    display: inline-block; /* Changez la valeur pour inline-block */
+}
+
+/* Style pour le titre "Dernières activités publiées" */
+.latest-activities h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Style pour chaque activité */
+.activite {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Style pour le titre de l'activité */
+.activite h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Style pour la description de l'activité */
+.activite p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Style pour la date de l'activité */
+.activite p:last-child {
+    font-size: 14px;
+    color: #999;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+
+/* Style pour la section des dernières participant */
+.latest-membre {
+    background-color: #3333336b;
+    border-radius: 5% 5% 5%;
+    padding: 10px;
+    border: 1px solid #ccc;
     margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
-  /* Style pour les boutons */
-  .button {
-    display: inline-block;
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out; /* Animation de changement de couleur */
-  }
-  
-  .button:hover {
-    background-color: #0056b3; /* Nouvelle couleur au survol */
-  }
-  
+    width: 500px; /* Définissez la largeur souhaitée */
+    display: inline-block; /* Changez la valeur pour inline-block */
+    /* margin-top:80px; */
+    /* margin-left:150px; */
+}
+
+/* Style pour le titre "Dernières activités publiées" */
+.latest-membre h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Style pour chaque activité */
+.membre {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Style pour le titre de l'activité */
+.membre h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Style pour la description de l'activité */
+.membre p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Style pour la date de l'activité */
+.membre p:last-child {
+    font-size: 14px;
+    color: #999;
+} 

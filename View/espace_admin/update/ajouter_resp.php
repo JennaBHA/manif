@@ -7,13 +7,14 @@ try {
     die('Connection failed: ' . $e->getMessage());
 }
 
-if (!$_SESSION['mdp']) {
+if (!isset($_SESSION['mdp'])) {
     header('Location: ../espace_admin/connexion/connexion.php');
     exit;
 }
 
 $message = '';
-$responsables = array(); // Créez un tableau vide pour stocker la liste des responsables.
+// Créez un tableau vide pour stocker la liste des responsables.
+$responsables = array();
 
 // Récupérez la liste des responsables depuis la base de données.
 $requeteResponsables = $bdd->query('SELECT nom FROM responsable');
@@ -22,18 +23,15 @@ while ($responsable = $requeteResponsables->fetch()) {
 }
 
 if (isset($_POST['envoie'])) {
-    if (!empty($_POST['titre']) && !empty($_POST['description'])) {
-        $titre = htmlspecialchars($_POST['titre']);
-        $description = nl2br(htmlspecialchars($_POST['description']));
-        $date = time(htmlspecialchars($_POST['date']));
+    if (!empty($_POST['nom']) && !empty($_POST['role']) && !empty($_POST['mdp'])) {
+        $nom = htmlspecialchars($_POST['nom']);
+        $role = htmlspecialchars($_POST['role']);
+        $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT); // Hash du mot de passe
 
-        // Ajoutez votre code pour récupérer la valeur sélectionnée dans le champ "responsable".
-        $responsable = $_POST['responsable'];
+        $inserAct = $bdd->prepare('INSERT INTO responsable(nom, role, mdp) VALUES(:nom, :role, :mdp)');
+        $inserAct->execute(array(':nom' => $nom, ':role' => $role, ':mdp' => $mdp));
 
-        $inserAct = $bdd->prepare('INSERT INTO activite(titre, description, date, responsable) VALUES(:titre, :description, :date, :responsable)');
-        $inserAct->execute(array(':titre' => $titre, ':description' => $description, ':date' => $date, ':responsable' => $responsable));
-
-        $message = '<p style="color: green;">L\'activité a bien été envoyée</p>';
+        $message = '<p style="color: green;">Le responsable a bien été ajouté</p>';
     } else {
         $message = '<p style="color: red;">Veuillez compléter tous les champs</p>';
     }
@@ -48,25 +46,17 @@ if (isset($_POST['envoie'])) {
     <link rel="stylesheet" href="../../style/style_admin/publier_act.css">
     <link rel="stylesheet" href="../../style/general/bouton.css">
     <link rel="stylesheet" href="../../style/general/card.css">
-    <title>Publier une activité</title>
-
+    <title>Ajouter responsable</title>
 </head>
 <body>
     <div class="card">
-        <h1>Publier une activité</h1>
+        <h1>Ajouter un responsable</h1>
         <form method="post">
-            <input type="text" name="titre" placeholder="Titre">
+            <input type="text" name="nom" placeholder="Nom">
             <br><br>
-            <textarea name="description" placeholder="Description"></textarea>
-            <br>
-            <h4>Responsable : </h4>
-            <select name="responsable" id="monselect" placeholder="Responsable">
-                <?php foreach ($responsables as $responsable) : ?>
-                    <option value="<?php echo $responsable['nom']; ?>"><?php echo $responsable['nom']; ?><?php echo $date['date']; ?></option>
-                <?php endforeach; ?>
-            </select>
+            <input type="text" name="role" placeholder="Rôle">
             <br><br>
-            <input type="time" name="creneau" autocomplete="off" placeholder="Créneau">
+            <input type="password" name="mdp" placeholder="Mot de passe">
             <br><br>
             <div class="button-container">
                 <button class="button" type="submit" name="envoie">Envoie</button>
@@ -86,3 +76,4 @@ if (isset($_POST['envoie'])) {
     </div>
 </body>
 </html>
+        

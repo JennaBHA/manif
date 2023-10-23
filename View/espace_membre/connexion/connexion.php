@@ -1,6 +1,8 @@
 <?php
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$mail_error = $mdp_error = ""; // Initialize error messages
+
 if(isset($_POST['envoi'])){
     if(!empty($_POST['mail']) AND !empty($_POST['mdp'])){
         $mail = htmlspecialchars($_POST['mail']);
@@ -17,10 +19,10 @@ if(isset($_POST['envoi'])){
             $_SESSION['prenom'] = $donnees['prenom']; // Enregistrez le prénom dans la session
             header('Location: ../index.php');
         } else {
-            echo "Votre mot de passe ou mail est incorrect";
+            $mail_error = "Votre mot de passe ou mail est incorrect";
         }
     } else {
-        echo "Veuillez compléter tous les champs";
+        $mdp_error = "Veuillez compléter tous les champs";
     }
 }
 ?>
@@ -30,19 +32,41 @@ if(isset($_POST['envoi'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../style/connexion_membre.css">
+    <link rel="stylesheet" href="../../style/style_membre/connexion_membre.css">
+    <link rel="stylesheet" href="../../style/general/bouton.css">
     <title>connexion</title>
 </head>
 <body>
-    <form method="POST" action="" align="center">
-        <h2>Connexion Membre</h2>
-        <input type="text" name="mail" autocomplete="off" placeholder="Adresse email">
-        <br>
-        <input type="password" name="mdp" autocomplete="off" placeholder="Mot de passe">
-        <br><br>
-        <input type="submit" name="envoi" value="Se connecter">
-        <a href="../../espace_admin/accueil.php" class="envoie-button">Accueil</a>
-        <p>Vous êtes pas encore inscrit ? <a href="../connexion/inscription.php">Inscrivez-vous !</a></p>
-    </form>
+<img class="wave" src="../../background/wave_.png" />
+<div class="container">
+    <div class="img"></div>
+    <div class="login-content">
+        <form method="post">
+            <h2 class="title">Connexion</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input type="text" name="mail" autocomplete="off" placeholder="Adresse email">
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <input type="password" name="mdp" autocomplete="off" placeholder="Mot de passe">
+                </div>
+            </div>
+            <div class="error-message"><?php echo $mail_error; ?></div>
+                <div class="error-message"><?php echo $mdp_error; ?></div>
+            <div class="button-container">
+                <button class="button" name="envoi" value="Se connecter">Se connecter</button>
+                <a href="../accueil.php" class="button" id="btn">Retour</a>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

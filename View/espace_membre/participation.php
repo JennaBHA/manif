@@ -1,30 +1,24 @@
 <?php
-session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
-if (!isset($_SESSION['mdp'])) {
-    header('Location: connexion.php');
-    exit();
+$bdd = new PDO('mysql:host=localhost;dbname=votre_base_de_donnees', 'votre_utilisateur', 'votre_mot_de_passe');
+
+// Sélectionnez les participants inscrits aux activités avec leurs informations.
+$query = $bdd->query('SELECT p.nom, p.prenom, a.nom AS activite_nom, a.date AS activite_date 
+                      FROM participants p 
+                      JOIN inscriptions i ON p.id = i.participant_id 
+                      JOIN activites a ON i.activite_id = a.id');
+
+echo '<h1>Liste des Participants et de leurs Activités</h1>';
+echo '<table>';
+echo '<tr><th>Nom</th><th>Prénom</th><th>Activité</th><th>Heure</th></tr>';
+
+while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+    echo '<tr>';
+    echo '<td>' . $row['nom'] . '</td>';
+    echo '<td>' . $row['prenom'] . '</td>';
+    echo '<td>' . $row['activite_nom'] . '</td>';
+    echo '<td>' . $row['activite_date'] . '</td>';
+    echo '</tr>';
 }
 
-if (isset($_GET['id'])) {
-    $activite_id = $_GET['id'];
-    // Assurez-vous que la variable de session 'utilisateur_id' est correctement initialisée ailleurs dans votre application.
-    if(isset($_SESSION['utilisateur_id'])){
-        $utilisateur_id = $_SESSION['utilisateur_id'];
-        // Assurez-vous que la table 'participations' possède une colonne 'activite_id' et une colonne 'utilisateur_id'.
-        $insert_query = $bdd->prepare("INSERT INTO participations (activite_id, utilisateur_id) VALUES (?, ?)");
-        $insert_query->execute([$activite_id, $utilisateur_id]);
-        echo "Bien jouer";
-        exit();
-    } else {
-        echo "aucun identifiant trouver";
-        // Gérer le cas où 'utilisateur_id' n'est pas défini dans la session.
-        // Vous pouvez rediriger l'utilisateur vers une page d'erreur ou effectuer une autre action appropriée.
-        // header('Location: erreur.php');
-        exit();
-    }
-} else {
-    header('Location: afficher_part.php');
-    exit();
-}
+echo '</table>';
 ?>

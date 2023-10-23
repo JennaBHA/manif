@@ -4,7 +4,18 @@ session_start();
 if (!$_SESSION['mdp']) {
     header('Location: connexion.php');
 }
-?>
+
+// Connexion à la base de données
+$bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '');
+
+// Récupérer le prénom de l'utilisateur connecté
+$id = $_SESSION['id']; // Assurez-vous que $_SESSION['id'] contient l'ID de l'utilisateur connecté
+$query = $bdd->prepare("SELECT prenom FROM participant WHERE id = :id");
+$query->bindParam(':id', $id, PDO::PARAM_INT);
+$query->execute();
+$result = $query->fetch(PDO::FETCH_ASSOC);
+$prenom = $result['prenom'];
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,13 +26,26 @@ if (!$_SESSION['mdp']) {
     <title>Home</title>
 </head>
 <body>
-    <!-- Menu en haut -->
-    <ul class="menu">
-        <li><a href="../espace_membre/afficher_part.php"><!-- A FAIRE !! -->Activités</a></li>
-        <li><a href="../espace_membre/connexion/deconnexion.php">deconnexion</a></li>
-    </ul>
+    <!-- Debut menu -->
+    <header>
+    <nav>
+        <ul class='nav-bar'>
+            <li class='logo'><a href='#'><img src='../background/logo.png'/></a></li>
+            <input type='checkbox' id='check' />
+            <span class="menu">
+                <li><a href="../espace_admin/membre.php">Afficher les membres</a></li>
+                <li><a href="../espace_admin/activite/activite.php">Afficher les participations</a></li>
+                <li><a href="../espace_admin/update/publier_act.php">Publier une nouvelle activité</a></li>
+                <li><a href="../espace_admin/activite/activite.php">Afficher les activités</a></li>
+                <li><a href="../espace_admin/connexion/connexion.php">Deconnexion</a></li>
+                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+            </span>
+            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+        </ul>
+    </nav>
+    </header>
 
-    <h1>Bienvenu dans votre espace Membre</h1>
+    <h1>Bienvenue dans votre espace <?php echo $prenom; ?></h1>
 
     <!-- Le reste de votre contenu -->
 </body>

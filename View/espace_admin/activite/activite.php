@@ -11,29 +11,35 @@ if(!$_SESSION['mdp']){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style/style_admin/afficher_act.css">
+    <link rel="stylesheet" href="../../style/general/bouton.css">
+    <link rel="stylesheet" href="../../style/general/scrollbar.css">
     <title>Afficher les activités</title>
 </head>
 <body>
+    <h1>Liste des activités</h1>
     <?php
     $recupAct = $bdd->query('SELECT * FROM activite');
-    while($activite = $recupAct->fetch()){
+    while ($activite = $recupAct->fetch()) {
         ?>
         <div class="activite" style="border: 1px solid black">
-            <h1><?= $activite['titre'];?></h1> <!--Afficher le titre de la base de donnée quand on ajoute une activité-->
-            <p><?= $activite['description'];?></p> <!--Afficher la description de la base de donnée quand on ajoute une actvité-->
-            <p><?= $activite['date'];?></p>
+            <h2><?= $activite['titre']; ?></h2>
+            <p><?= $activite['description']; ?></p>
+            <p>Heure : <?= $activite['date']; ?></p> <!-- Afficher l'heure associée à l'activité -->
+
             <a href="../update/supprimer_act.php?id=<?= $activite['id']; ?>">
-                <button style="color: black; background-color: red;">Supprimer l'activite</button>
+                <button class="supprimer" role="button">Supprimer</button>
             </a>
             <a href="../update/modifier_act.php?id=<?= $activite['id']; ?>">
-                <button style="color: black; background-color: yellow;">modifier l'activite</button>
+                <button class="modifier" role="button">Modifier</button>
             </a>
-            <!-- <button style="color: black; background-color: yellow;">Modicier l'article</button> -->
         </div>
         <br>
         <?php
     }
     ?>
-    <a href="../index.php" class="envoie-button">retour</a>
+    <br>
+    <div class="button-container">
+        <a href="../index.php" class="button" id="btn">Retour</a>
+    </div>
 </body>
 </html>
