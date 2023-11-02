@@ -11,7 +11,7 @@ if (!$_SESSION['mdp']) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/style_admin/index_admin.css">
+    <link rel="stylesheet" href="../style/style_admin/index.css">
     <link rel="stylesheet" href="../style/general/navbar.css">
     <link rel="stylesheet" href="../style/general/scrollbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
@@ -25,7 +25,7 @@ if (!$_SESSION['mdp']) {
             <input type='checkbox' id='check' />
             <span class="menu">
                 <li><a href="../espace_admin/membre.php">Afficher les membres</a></li>
-                <li><a href="responsable.php">Afficher les responsables</a></li>
+                <li><a href="../espace_resp/responsable.php">Afficher les responsables</a></li>
                 <li><a href="../espace_admin/activite/activite.php">Afficher les participations</a></li>
                 <li><a href="../espace_admin/activite/activite.php">Afficher les activités</a></li>
                 <li><a href="../espace_admin/update/ajouter_resp.php">Ajouter un responsable</a></li>

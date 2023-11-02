@@ -8,17 +8,6 @@ body {
   overflow: hidden;
 }
 
-/* input[type="submit"]:hover {
-  background: transparent;
-  color: black;
-  left: 0;
-  border-radius: 0;
-  border-bottom: 2px solid #070707;
-  top: 0;
-  transition: 500ms;
-  text-decoration: none;
-} */
-
 /*------------------------------------------------------------------------------------------------*/
 .button-container {
   display: flex;
@@ -31,9 +20,7 @@ body {
 .error-message {
   color: red;
   font-size: 14px;
-  /* margin-top: 5px; */
 }
-
 
 /* -------------------------------------------- */
 
@@ -262,4 +249,3 @@ a:hover {
 }
 
 /* ----------------------------------------- */
-

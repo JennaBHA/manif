@@ -25,11 +25,12 @@ while ($responsable = $requeteResponsables->fetch()) {
 if (isset($_POST['envoie'])) {
     if (!empty($_POST['nom']) && !empty($_POST['role']) && !empty($_POST['mdp'])) {
         $nom = htmlspecialchars($_POST['nom']);
+        $prenom = htmlspecialchars($_POST['prenom']);
         $role = htmlspecialchars($_POST['role']);
         $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT); // Hash du mot de passe
 
-        $inserAct = $bdd->prepare('INSERT INTO responsable(nom, role, mdp) VALUES(:nom, :role, :mdp)');
-        $inserAct->execute(array(':nom' => $nom, ':role' => $role, ':mdp' => $mdp));
+        $inserAct = $bdd->prepare('INSERT INTO responsable(nom, prenom, role, mdp) VALUES(:nom, :prenom, :role, :mdp)');
+        $inserAct->execute(array(':nom' => $nom, ':prenom' => $prenom, ':role' =>  $role, ':mdp' => $mdp));
 
         $message = '<p style="color: green;">Le responsable a bien été ajouté</p>';
     } else {
@@ -49,21 +50,23 @@ if (isset($_POST['envoie'])) {
     <title>Ajouter responsable</title>
 </head>
 <body>
-    <div class="card">
-        <h1>Ajouter un responsable</h1>
-        <form method="post">
-            <input type="text" name="nom" placeholder="Nom">
-            <br><br>
-            <input type="text" name="role" placeholder="Rôle">
-            <br><br>
-            <input type="password" name="mdp" placeholder="Mot de passe">
-            <br><br>
-            <div class="button-container">
-                <button class="button" type="submit" name="envoie">Envoie</button>
-                <a href="../index.php" class="button" id="btn">Retour</a>
-            </div>
-        </form>
-    </div>
+<div class="card">
+    <h1>Ajouter un responsable</h1>
+    <form method="post">
+        <input type="text" name="nom" placeholder="Nom">
+        <br><br>
+        <input type="text" name="prenom" placeholder="Prénom">
+        <br><br>
+        <input type="text" name="role" placeholder="Rôle">
+        <br><br>
+        <input type="password" name="mdp" placeholder="Mot de passe">
+        <br><br>
+        <div class="button-container">
+            <button class="button" type="submit" name="envoie">Envoie</button>
+            <a href="../index.php" class="button" id="btn">Retour</a>
+        </div>
+    </form>
+</div>
     
     <a href="../activite/activite.php" class="button1" role="button">Activité -&gt;</a>
     <!-- Message container -->

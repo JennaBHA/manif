@@ -5,27 +5,24 @@
 }
 
 #btn {
-    /* background: #222; */
+    font-family: "Poppins", sans-serif;
     width: 25px;
     height: 35px;
     min-width: 90px;
     border: none;
-    /* border-radius: 10px; */
     color: #000000;
     font-size: 15px;
-    font-family: Arial, sans-serif;
     position: relative;
-    /* transition: 1s; */
     -webkit-tap-highlight-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    padding-top: 5px;
     text-decoration: none;
 }
 
 .button {
+    font-family: "Poppins", sans-serif;
     align-items: center;
     appearance: none;
     background-color: #FCFCFD;
@@ -36,7 +33,6 @@
     color: #000000;
     cursor: pointer;
     display: inline-flex;
-    font-family: "JetBrains Mono",monospace;
     height: 35px;
     justify-content: center;
     line-height: 1;
@@ -53,7 +49,7 @@
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow,transform;
-    font-size: 18px;
+    font-size: 15px;
     margin-left: 20px;
 }
 

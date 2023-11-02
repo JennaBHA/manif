@@ -1,31 +1,38 @@
 <?php
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-$mail_error = $mdp_error = ""; // Initialize error messages
+$nom_error = $mdp_error = ""; 
 
 if(isset($_POST['envoi'])){
-    if(!empty($_POST['mail']) AND !empty($_POST['mdp'])){
-        $mail = htmlspecialchars($_POST['mail']);
-        $mdp = sha1($_POST['mdp']);
+    if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mdp'])){
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $mdp = $_POST['mdp'];
 
-        $recupPart = $bdd->prepare('SELECT id, prenom FROM participant WHERE mail = ? AND mdp = ?');
-        $recupPart->execute(array($mail, $mdp));
+        $recupPart = $bdd->prepare('SELECT id, nom, prenom, mdp FROM responsable WHERE nom = ? AND prenom = ?'); // Removed mdp condition here
+        $recupPart->execute(array($nom, $prenom));
 
         if($recupPart->rowCount() > 0){
             $donnees = $recupPart->fetch();
-            $_SESSION['mail'] = $mail;
-            $_SESSION['mdp'] = $mdp;
-            $_SESSION['id'] = $donnees['id'];
-            $_SESSION['prenom'] = $donnees['prenom']; // Enregistrez le prénom dans la session
-            header('Location: ../index.php');
+            if (password_verify($mdp, $donnees['mdp'])) { 
+                $_SESSION['nom'] = $nom;
+                $_SESSION['prenom'] = $prenom;
+                $_SESSION['mdp'] = $mdp;
+                $_SESSION['id'] = $donnees['id'];
+                header('Location: ../index.php');
+            } else {
+                $mdp_error = "Mot de passe incorrect";
+            }
         } else {
-            $mail_error = "Votre mot de passe ou mail est incorrect";
+            $nom_error = "Nom et prénom incorrects";
         }
     } else {
         $mdp_error = "Veuillez compléter tous les champs";
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +42,7 @@ if(isset($_POST['envoi'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../style/style_membre/connexion.css">
+    <link rel="stylesheet" href="../../style/style_resp/connexion.css">
     <link rel="stylesheet" href="../../style/general/bouton.css">
     <title>connexion</title>
 </head>
@@ -51,7 +58,15 @@ if(isset($_POST['envoi'])){
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="div">
-                    <input type="text" name="mail" autocomplete="off" placeholder="Adresse email">
+                    <input type="text" name="nom" autocomplete="off" placeholder="nom">
+                </div>
+            </div>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input type="text" name="prenom" autocomplete="off" placeholder="prenom">
                 </div>
             </div>
             <div class="input-div pass">
@@ -62,8 +77,8 @@ if(isset($_POST['envoi'])){
                     <input type="password" name="mdp" autocomplete="off" placeholder="Mot de passe">
                 </div>
             </div>
-            <div class="error-message"><?php echo $mail_error; ?></div>
-                <div class="error-message"><?php echo $mdp_error; ?></div>
+            <div class="error-message"><?php echo $nom_error; ?></div>
+            <div class="error-message"><?php echo $mdp_error; ?></div>
             <div class="button-container">
                 <button class="button" name="envoi" value="Se connecter">Se connecter</button>
                 <a href="../accueil.php" class="button" id="btn">Retour</a>

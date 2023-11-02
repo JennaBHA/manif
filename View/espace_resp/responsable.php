@@ -31,13 +31,15 @@ if (isset($_POST['id'])) {
 <body>
     <h1>Liste des responsables</h1>
     <?php
-    $recupUsers = $bdd->query('SELECT id, nom, mdp, role FROM responsable');
+    $recupUsers = $bdd->query('SELECT id, nom, prenom, mdp, role FROM responsable');
     while ($user = $recupUsers->fetch()) {
         ?>
         <form action="" method="post">
             <div class="user-card">
                 <div class="user-info">
-                    <p><?= $user['nom']; ?> <?= $user['mdp']; ?></p>
+                    <p> Nom : <?= $user['nom']; ?>  </p>
+                    <p>Prénom : <?= $user['prenom']; ?></p>
+                    <p>Mot de passe : <?= $user['mdp']; ?></p>
                     <p>Rôle : <?= $user['role']; ?></p>
                 </div>
                 <div class="user-actions">
