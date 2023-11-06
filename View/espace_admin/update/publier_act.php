@@ -2,36 +2,36 @@
 session_start();
 
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '');
 } catch (PDOException $e) {
     die('Connection failed: ' . $e->getMessage());
 }
 
-if (!$_SESSION['mdp']) {
+if (!isset($_SESSION['mdp'])) {
     header('Location: ../espace_admin/connexion/connexion.php');
     exit;
 }
 
 $message = '';
-$responsables = array(); // Créez un tableau vide pour stocker la liste des responsables.
+$responsables = array();
 
-// Récupérez la liste des responsables depuis la base de données.
+
 $requeteResponsables = $bdd->query('SELECT nom FROM responsable');
 while ($responsable = $requeteResponsables->fetch()) {
-    $responsables[] = $responsable;
+    $responsables[] = $responsable['nom']; 
 }
 
 if (isset($_POST['envoie'])) {
-    if (!empty($_POST['titre']) && !empty($_POST['description'])) {
+    if (!empty($_POST['titre']) && !empty($_POST['description']) && !empty($_POST['date'])) { // Ajout de la vérification de la date
         $titre = htmlspecialchars($_POST['titre']);
         $description = nl2br(htmlspecialchars($_POST['description']));
-        $date = time(htmlspecialchars($_POST['date']));
+        $date = date('Y-m-d', strtotime($_POST['date']));
+        $heure = empty($_POST['creneau']) ? null : $_POST['creneau']; 
 
-        // Ajoutez votre code pour récupérer la valeur sélectionnée dans le champ "responsable".
         $responsable = $_POST['responsable'];
 
-        $inserAct = $bdd->prepare('INSERT INTO activite(titre, description, date, responsable) VALUES(:titre, :description, :date, :responsable)');
-        $inserAct->execute(array(':titre' => $titre, ':description' => $description, ':date' => $date, ':responsable' => $responsable));
+        $inserAct = $bdd->prepare('INSERT INTO activite(titre, description, date, heure, responsable) VALUES(:titre, :description, :date, :heure, :responsable)'); // Ajout d'une virgule pour séparer les placeholders
+        $inserAct->execute(array(':titre' => $titre, ':description' => $description, ':date' => $date, ':heure' => $heure, ':responsable' => $responsable));
 
         $message = '<p style="color: green;">L\'activité a bien été envoyée</p>';
     } else {
@@ -49,22 +49,23 @@ if (isset($_POST['envoie'])) {
     <link rel="stylesheet" href="../../style/general/bouton.css">
     <link rel="stylesheet" href="../../style/general/card.css">
     <title>Publier une activité</title>
-
 </head>
 <body>
     <div class="card">
         <h1>Publier une activité</h1>
         <form method="post">
-            <input type="text" name="titre" placeholder="Titre">
+            <input type="text" name="titre" placeholder="Titre" required>
             <br><br>
-            <textarea name="description" placeholder="Description"></textarea>
+            <textarea name="description" placeholder="Description" required></textarea>
             <br>
             <h4>Responsable : </h4>
-            <select name="responsable" id="monselect" placeholder="Responsable">
+            <select name="responsable" id="monselect" required>
                 <?php foreach ($responsables as $responsable) : ?>
-                    <option value="<?php echo $responsable['nom']; ?>"><?php echo $responsable['nom']; ?><?php echo $date['date']; ?></option>
+                    <option value="<?php echo $responsable; ?>"><?php echo $responsable; ?></option>
                 <?php endforeach; ?>
             </select>
+            <br><br>
+            <input type="date" name="date" required>
             <br><br>
             <input type="time" name="creneau" autocomplete="off" placeholder="Créneau">
             <br><br>
@@ -76,7 +77,7 @@ if (isset($_POST['envoie'])) {
     </div>
     
     <a href="../activite/activite.php" class="button1" role="button">Activité -&gt;</a>
-    <!-- Message container -->
+
     <div id="message-container">
         <?php
         if (!empty($message)) {

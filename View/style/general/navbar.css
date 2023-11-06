@@ -77,3 +77,29 @@ body {
   .open-menu , .close-menu {display: block;}
   #check:checked ~ .menu {right: 0;}
 }
+
+/* ------------------------------------------------------------------------------ */
+/*Menu déroulant*/
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--color2);
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  color: var(--color1);
+  transition: 0.15s ease-in-out;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

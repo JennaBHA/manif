@@ -24,7 +24,9 @@ if(!$_SESSION['mdp']){
         <div class="activite" style="border: 1px solid black">
             <h2><?= $activite['titre']; ?></h2>
             <p><?= $activite['description']; ?></p>
-            <p>Heure : <?= $activite['date']; ?></p> <!-- Afficher l'heure associée à l'activité -->
+            <p>Date : <?= $activite['date']; ?></p> 
+            <p>Heure : <?= $activite['heure']; ?></p>
+            <br>
 
             <a href="../update/supprimer_act.php?id=<?= $activite['id']; ?>">
                 <button class="supprimer" role="button">Supprimer</button>

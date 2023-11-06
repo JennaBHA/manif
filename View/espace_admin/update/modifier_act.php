@@ -54,7 +54,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <input type="time" name="creneau" value="<?= $date ?>">
             <div class="button-container">
                 <button class="button" type="submit" name="valider">Modifier</button>
-                <a href="../activite.php" class="button" id="btn">Retour</a>
+                <a href="../activite/activite.php" class="button" id="btn">Retour</a>
             </div>
         </form>
     </div>

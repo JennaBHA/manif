@@ -5,7 +5,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '', array(PDO::ATTR_
 // Variable pour suivre l'état de la soumission
 $formSubmitted = false;
 
-if(isset($_POST['envoie'])){
+if(isset($_POST['envoi'])){
     $nom = isset($_POST['nom']) ? trim($_POST['nom']) : "";
     $prenom = isset($_POST['prenom']) ? trim($_POST['prenom']) : "";
     $mail = isset($_POST['mail']) ? trim($_POST['mail']) : "";
@@ -13,6 +13,8 @@ if(isset($_POST['envoie'])){
     $mdp = isset($_POST['mdp']) ? trim($_POST['mdp']) : "";
 
     // Validation des champs
+    $nomError = $prenomError = $mailError = $telephoneError = $mdpError = "";
+
     if(empty($nom) || empty($prenom) || empty($mail) || empty($telephone) || empty($mdp)){
         $nomError = "Veuillez compléter tous les champs.";
     } elseif(strlen($nom) < 2 || strlen($prenom) < 2){
@@ -36,7 +38,9 @@ if(isset($_POST['envoie'])){
         $inserUser->execute(array($nom, $prenom, $mail, $telephone, $mdp));
 
         // Vous devez récupérer l'ID du nouvel utilisateur après l'insertion
-        $recupPart = $bdd->query('SELECT id FROM participant WHERE nom = "'.$nom.'" AND prenom = "'.$prenom.'"');
+        $recupPart = $bdd->prepare('SELECT id FROM participant WHERE nom = ? AND prenom = ?');
+        $recupPart->execute(array($nom, $prenom));
+
         if($recupPart->rowCount() > 0){
             $result = $recupPart->fetch();
             $_SESSION['id'] = $result['id'];
@@ -46,6 +50,13 @@ if(isset($_POST['envoie'])){
             $_SESSION['telephone'] = $telephone;
             $_SESSION['mdp'] = $mdp;
             $formSubmitted = true; // Marquer que le formulaire a été soumis avec succès
+
+            $roleId = 1; // L'ID du rôle "participant(e)"
+    $userId = $result['id']; // L'ID de l'utilisateur que vous venez d'insérer
+
+    $insertUserRole = $bdd->prepare('INSERT INTO role(id, id) VALUES(?, ?)');
+    $insertUserRole->execute(array($userId, $roleId));
+
         }
     }
 }
@@ -68,57 +79,94 @@ if ($formSubmitted) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../style/inscription.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style/style_membre/inscription.css">
+    <link rel="stylesheet" href="../../style/general/bouton.css">
     <title>Inscription</title>
-    <style>
-        .error-message {
-            color: red;
-        }
-    </style>
 </head>
 <body>
-    <form method="POST" action="" align="center">
-        <h2>Inscription</h2>
-        <input type="text" name="nom" autocomplete="off" placeholder="Nom" value="<?php echo isset($_SESSION['nomValue']) ? $_SESSION['nomValue'] : ''; ?>">
-        <br>
-        <span class="error-message">
-            <?php if(isset($nomError)) echo $nomError; ?>
-        </span>
-        <br>
-        <input type="text" name="prenom" autocomplete="off" placeholder="Prenom" value="<?php echo isset($_SESSION['prenomValue']) ? $_SESSION['prenomValue'] : ''; ?>">
-        <br>
-        <span class="error-message">
-            <?php if(isset($prenomError)) echo $prenomError; ?>
-        </span>
-        <br>
-        <input type="text" name="mail" autocomplete="off" placeholder="Mail" value="<?php echo isset($_SESSION['mailValue']) ? $_SESSION['mailValue'] : ''; ?>">
-        <br>
-        <span class="error-message">
-            <?php if(isset($mailError)) echo $mailError; ?>
-        </span>
-        <br>
-        <input type="text" name="telephone" autocomplete="off" placeholder="Téléphone" value="<?php echo isset($_SESSION['telephoneValue']) ? $_SESSION['telephoneValue'] : ''; ?>">
-        <br>
-        <span class="error-message">
-            <?php if(isset($telephoneError)) echo $telephoneError; ?>
-        </span>
-        <br>
-        <input type="password" name="mdp" autocomplete="off" placeholder="Mot de passe" value="<?php echo isset($_SESSION['mdpValue']) ? $_SESSION['mdpValue'] : ''; ?>">
-        <br>
-        <span class="error-message">
-            <?php if(isset($mdpError)) echo $mdpError; ?>
-        </span>
-        <br><br>
-        <input type="submit" name="envoie">
-        <a href="../../espace_admin/accueil.php" class="envoie-button">Accueil</a>
-        <p>Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous</a></p>
-    </form>
+<img class="wave" src="../../background/wave_.png" alt="Wave Background">
+<div class="container">
+    <div class="img"></div>
+    <div class="login-content">
+        <form method="post">
+            <h2 class="title">Inscription</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input type="text" name="nom" autocomplete="off" placeholder="Nom" value="<?php echo isset($_SESSION['nomValue']) ? $_SESSION['nomValue'] : ''; ?>">
+                    <br>
+                    <span class="error-message">
+                        <?php if(!empty($nomError)) echo $nomError; ?>
+                    </span>
+                </div>
+            </div>
 
-    <script>
-        // Réinitialise le formulaire si le formulaire a été soumis avec succès
-        <?php if ($formSubmitted) : ?>
-        document.querySelector("form").reset();
-        <?php endif; ?>
-    </script>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input type="text" name="prenom" autocomplete="off" placeholder="Prenom" value="<?php echo isset($_SESSION['prenomValue']) ? $_SESSION['prenomValue'] : ''; ?>">
+                    <br>
+                    <span class="error-message">
+                        <?php if(!empty($prenomError)) echo $prenomError; ?>
+                    </span>
+                </div>
+            </div>
+
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="div">
+                    <input type="text" name="mail" autocomplete="off" placeholder="Mail" value="<?php echo isset($_SESSION['mailValue']) ? $_SESSION['mailValue'] : ''; ?>">
+                    <br>
+                    <span class="error-message">
+                        <?php if(!empty($mailError)) echo $mailError; ?>
+                    </span>
+                </div>
+            </div>
+
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="div">
+                    <input type="text" name="telephone" autocomplete="off" placeholder="Telephone" value="<?php echo isset($_SESSION['telephoneValue']) ? $_SESSION['telephoneValue'] : ''; ?>">
+                    <br>
+                    <span class="error-message">
+                        <?php if(!empty($telephoneError)) echo $telephoneError; ?>
+                    </span>
+                </div>
+            </div>
+
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <input type="password" name="mdp" autocomplete="off" placeholder="Mot de passe">
+                </div>
+            </div>
+
+            <div class="error-message"><?php if(!empty($mail_error)) echo $mail_error; ?></div>
+            <div class="error-message"><?php if(!empty($mdp_error)) echo $mdp_error; ?></div>
+
+            <div class="button-container">
+                <button class="button" name="envoi" value="S'inscrire">S'inscrire</button>
+                <a href="../accueil.php" class="button" id="btn">Retour</a>
+            </div>
+            <br>
+            <p>Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous !</a></p>
+        </form>
+    </div>
+</div>
+</div>
 </body>
+<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </html>

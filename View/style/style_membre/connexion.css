@@ -176,10 +176,9 @@ form {
 }
 
 a {
-  display: block;
   text-align: right;
   text-decoration: none;
-  color: #999;
+  color: #000000;
   font-size: 0.9rem;
   transition: 0.3s;
 }

@@ -68,6 +68,8 @@ if(isset($_POST['envoi'])){
                 <button class="button" name="envoi" value="Se connecter">Se connecter</button>
                 <a href="../accueil.php" class="button" id="btn">Retour</a>
             </div>
+            <br>
+            <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous !</a></p>
         </form>
     </div>
 </div>

@@ -57,7 +57,11 @@ if (isset($_POST['envoie'])) {
         <br><br>
         <input type="text" name="prenom" placeholder="Prénom">
         <br><br>
-        <input type="text" name="role" placeholder="Rôle">
+        <select name="role">
+            <option value="responsable">Responsable</option>
+            <option value="administrateur">Administrateur</option>
+            <option value="participant">Participant</option>
+        </select>
         <br><br>
         <input type="password" name="mdp" placeholder="Mot de passe">
         <br><br>
@@ -67,6 +71,7 @@ if (isset($_POST['envoie'])) {
         </div>
     </form>
 </div>
+
     
     <a href="../activite/activite.php" class="button1" role="button">Activité -&gt;</a>
     <!-- Message container -->
