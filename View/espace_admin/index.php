@@ -14,6 +14,7 @@ if (!$_SESSION['mdp']) {
     <link rel="stylesheet" href="../style/style_admin/index.css">
     <link rel="stylesheet" href="../style/general/navbar.css">
     <link rel="stylesheet" href="../style/general/scrollbar.css">
+    <link rel="stylesheet" href="../style/general/bouton.css">
     <title>Home</title>
 </head>
 <body>
@@ -53,13 +54,81 @@ if (!$_SESSION['mdp']) {
   </header>
     <!-- fin menu -->
 
+    <!-- Début activité -->
   <main class="main-content" role="main">
     <h1> Tableau de bord </h1>
     <br>
+    <div class="latest-activities">
+    <h2>Dernières activités publiées :</h2>
+    <?php
+    // Connexion à la base de données (assurez-vous que cette partie est correcte)
+    $bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
 
-    
+    // Requête pour récupérer les dernières activités (par exemple, les 5 dernières)
+    $query = $bdd->query('SELECT titre, description, date, heure, responsable FROM activite ORDER BY date DESC LIMIT 3');
 
-  </main>
+    // Boucle pour afficher les activités
+    while ($activite = $query->fetch()) {
+        echo '<div class="activite" style="border: 1px solid black">';
+        echo '<h3>' . $activite['titre'] . '</h3>';
+        echo '<p>' . $activite['description'] . '</p>';
+        echo '<p>' . $activite['date'] . '</p>';
+        echo '<p>' . $activite['heure'] .'</p>';
+        // echo '<p>' . $activite['responsable'] . '</p>';
+        echo '</div>';
+    }
+    ?>
+    <!-- Début bouton -->
+        <button type="button" class="button_act">
+        <a href="../espace_admin/activite/activite.php" class="button_act" id="btn">
+            <span class="button__act">Afficher plus</span>
+            <span class="button__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
+                <line y2="19" y1="5" x2="12" x1="12"></line>
+                <line y2="12" y1="12" x2="19" x1="5"></line>
+            </svg>
+            </span>
+        </a>
+        </button>
+        </div>
+        <!-- Fin Bouton -->
+        <!-- fin Activité -->
+
+    <!-- Début Participant -->
+    <div class="latest-membre">
+    <h2>Dernièrs membre inscrit :</h2>
+    <?php
+    // Connexion à la base de données (assurez-vous que cette partie est correcte)
+    $bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
+
+    // Requête pour récupérer les dernières activités (par exemple, les 5 dernières)
+    $query = $bdd->query('SELECT nom, prenom, mail, telephone FROM participant LIMIT 3');
+    // Boucle pour afficher les activités
+    while ($activite = $query->fetch()) {
+        echo '<div class="membre" style="border: 1px solid black">';
+        echo '<h3>' . $activite['nom'] . '</h3>';
+        echo '<p>' . $activite['prenom'] . '</p>';
+        echo '<p>' . $activite['mail'] . '</p>';
+        echo '<p>' . $activite['telephone'] .'</p>';
+        echo '</div>';
+    }
+    ?>
+    <!-- Début Bouton -->
+    <button type="button" class="button_membre">
+    <a href="membre.php" class="button_membre" id="btn_membre">
+    <span class="button__membre">Afficher plus</span>
+    <span class="button__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
+        <line y2="19" y1="5" x2="12" x1="12"></line>
+        <line y2="12" y1="12" x2="19" x1="5"></line>
+      </svg>
+    </span>
+  </a>
+</button>
+</div>
+    <!-- Fin Bouton -->
+</main>
+    <!-- Fin activité -->
 </body>
 <script src="../JS/script_menu.js"></script>
 </html>

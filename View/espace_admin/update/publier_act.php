@@ -15,10 +15,9 @@ if (!isset($_SESSION['mdp'])) {
 $message = '';
 $responsables = array();
 
-
 $requeteResponsables = $bdd->query('SELECT nom FROM responsable');
 while ($responsable = $requeteResponsables->fetch()) {
-    $responsables[] = $responsable['nom']; 
+    $responsables[] = $responsable['nom'];
 }
 
 if (isset($_POST['envoie'])) {
@@ -26,11 +25,11 @@ if (isset($_POST['envoie'])) {
         $titre = htmlspecialchars($_POST['titre']);
         $description = nl2br(htmlspecialchars($_POST['description']));
         $date = date('Y-m-d', strtotime($_POST['date']));
-        $heure = empty($_POST['creneau']) ? null : $_POST['creneau']; 
+        $heure = empty($_POST['creneau']) ? null : $_POST['creneau'];
 
         $responsable = $_POST['responsable'];
 
-        $inserAct = $bdd->prepare('INSERT INTO activite(titre, description, date, heure, responsable) VALUES(:titre, :description, :date, :heure, :responsable)'); // Ajout d'une virgule pour séparer les placeholders
+        $inserAct = $bdd->prepare('INSERT INTO activite(titre, description, date, heure, responsable) VALUES(:titre, :description, :date, :heure, :responsable)');
         $inserAct->execute(array(':titre' => $titre, ':description' => $description, ':date' => $date, ':heure' => $heure, ':responsable' => $responsable));
 
         $message = '<p style="color: green;">L\'activité a bien été envoyée</p>';
@@ -48,36 +47,39 @@ if (isset($_POST['envoie'])) {
     <link rel="stylesheet" href="../../style/style_admin/publier_act.css">
     <link rel="stylesheet" href="../../style/general/bouton.css">
     <link rel="stylesheet" href="../../style/general/card.css">
+    <link rel="stylesheet" href="../../style/general/scrollbar.css">
     <title>Publier une activité</title>
 </head>
 <body>
-    <div class="card">
+    <div class="ajout">
         <h1>Publier une activité</h1>
         <form method="post">
+            <p><B>Titre de l'activité :</B></p>
             <input type="text" name="titre" placeholder="Titre" required>
             <br><br>
+            <p><B>Description de l'activité</B></p>
             <textarea name="description" placeholder="Description" required></textarea>
             <br>
-            <h4>Responsable : </h4>
+            <p><B>Responsable de l'activité :</B></p>
             <select name="responsable" id="monselect" required>
                 <?php foreach ($responsables as $responsable) : ?>
                     <option value="<?php echo $responsable; ?>"><?php echo $responsable; ?></option>
                 <?php endforeach; ?>
             </select>
             <br><br>
+            <p><B>Date : </B></p>
             <input type="date" name="date" required>
             <br><br>
+            <p><B>Heure :</B></p>
             <input type="time" name="creneau" autocomplete="off" placeholder="Créneau">
             <br><br>
-            <div class="button-container">
-                <button class="button" type="submit" name="envoie">Envoie</button>
-                <a href="../index.php" class="button" id="btn">Retour</a>
-            </div>
+            <div class="envoie-activite-container">
+    <button class="envoie" type="submit" name="envoie" style="text-decoration: none;">Envoie</button>
+    <a href="../activite/activite.php" class="envoie-act" style="text-decoration: none;">Activité</a>
+</div>
+
         </form>
     </div>
-    
-    <a href="../activite/activite.php" class="button1" role="button">Activité -&gt;</a>
-
     <div id="message-container">
         <?php
         if (!empty($message)) {

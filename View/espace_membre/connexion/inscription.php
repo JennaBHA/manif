@@ -54,8 +54,8 @@ if(isset($_POST['envoi'])){
             $roleId = 1; // L'ID du rôle "participant(e)"
     $userId = $result['id']; // L'ID de l'utilisateur que vous venez d'insérer
 
-    $insertUserRole = $bdd->prepare('INSERT INTO role(id, id) VALUES(?, ?)');
-    $insertUserRole->execute(array($userId, $roleId));
+    // $insertUserRole = $bdd->prepare('INSERT INTO role(id, id) VALUES(?, ?)');
+    // $insertUserRole->execute(array($userId, $roleId));
 
         }
     }

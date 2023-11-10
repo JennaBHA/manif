@@ -7,9 +7,9 @@ body, h1, p, a, form, div {
 /* Styles pour le corps de la page */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: rgba(49,51,56,255);
     margin: 0;
-    padding: 20px;
+    color: #fff;
 }
 
 /* Styles pour le titre de la page */
@@ -17,6 +17,7 @@ h1 {
     font-size: 24px;
     text-align: center;
     margin-bottom: 20px;
+    padding: 20px;
 }
 
 /* Styles pour la liste des membres */
@@ -24,12 +25,16 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: rgba(49,51,56,255);
     margin-bottom: 10px;
     padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 2px #fff;
+}
+
+.padding {
+    padding: 25px;
 }
 
 .user-info {
@@ -46,64 +51,9 @@ h1 {
     align-items: center;
 }
 
-/* Style pour le bouton "Bannir le membre" */
-button.noselect {
-    cursor: pointer;
-    width: 75px;
-    height: 25px;
-    background: red;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-    color: white;
-    background: #e62222;
-    transition: 200ms;
-    position: relative;
-    margin-right: 10px;
-}
-
-button.noselect .text {
-    transform: translateX(15px);
-    color: white;
-    font-weight: bold;
-}
-
-button.noselect .icon {
-    position: absolute;
-    transform: translateX(55px);
-    height: 30px;
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-button.noselect svg {
-    width: 10px;
-    fill: #eee;
-}
-
-button.noselect:hover {
-    background: #ff0000c4;
-}
-
-button.noselect:hover .text {
-    color: transparent;
-}
-
-button.noselect:hover .icon {
-    width: 75px;
-    border-left: none;
-    transform: translateX(0);
-}
-
-button.noselect:focus {
-    outline: none;
-}
-
 /* Style pour le lien "Modifier" */
 a {
-    color: blue;
+    color: blue;   
     text-decoration: none;
     font-weight: bold;
-}
+} 
