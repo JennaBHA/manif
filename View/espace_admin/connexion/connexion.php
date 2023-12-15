@@ -75,8 +75,12 @@ if (isset($_POST['valider'])) {
 
                 <div class="button-container">
             <button class="button" type="submit" name="valider">Se connecter</button>
-            <a href="../accueil.php" class="button" id="btn">Retour</a>
         </div>
+
+        <div class="button-retour">
+            <a href="../accueil.php" class="button-retour" id="bouton-retour">Retour</a>
+        </div>
+
 
         </div>
         </form>

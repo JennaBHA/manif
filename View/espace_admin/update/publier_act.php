@@ -45,21 +45,61 @@ if (isset($_POST['envoie'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../style/style_admin/publier_act.css">
-    <link rel="stylesheet" href="../../style/general/bouton.css">
+    <!-- <link rel="stylesheet" href="../../style/general/bouton.css"> -->
+    <link rel="stylesheet" href="../../style/general/navbar.css">
     <link rel="stylesheet" href="../../style/general/card.css">
     <link rel="stylesheet" href="../../style/general/scrollbar.css">
     <title>Publier une activité</title>
 </head>
 <body>
+    <!-- début menu -->
+    <header class="header">
+    <a class="logo">FATALYS</a>
+    <nav class="navbar">
+            <a href="../index.php">Accueil</a>
+            <div class="dropdown">
+                <a href="#" class="with-dropdown">Activité</a>
+                <i class="fa fa-caret-down"></i>
+                <div class="dropdown-content">
+                    <a href="../activite/activite.php">Afficher</a>
+                    <a href="publier_act.php">Publier</a>
+                    <a href="modifier_act.php">Modifier</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="with-dropdown">Membres</a>
+                <i class="fa fa-caret-down"></i>
+                <div class="dropdown-content">
+                    <a href="../gerer.php">Afficher</a>
+                    <a href="../membre.php">Participant</a>
+                    <a href="#">Participation</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="with-dropdown">Responsable</a>
+                <i class="fa fa-caret-down"></i>
+                <div class="dropdown-content">
+                    <a href="../../espace_resp/responsable.php">Afficher</a>
+                    <a href="../../espace_admin/update/ajouter_resp.php">Ajouter</a>
+                </div>
+            </div>
+            <a href="../connexion/deconnexion.php">Déconnection</a>
+        </nav>
+    </header>
+    <!-- fin menu -->
+
+
+<main class="test">
     <div class="ajout">
         <h1>Publier une activité</h1>
+        <div class="test2">
         <form method="post">
             <p><B>Titre de l'activité :</B></p>
             <input type="text" name="titre" placeholder="Titre" required>
             <br><br>
             <p><B>Description de l'activité</B></p>
             <textarea name="description" placeholder="Description" required></textarea>
-            <br>
+            <br><br>
             <p><B>Responsable de l'activité :</B></p>
             <select name="responsable" id="monselect" required>
                 <?php foreach ($responsables as $responsable) : ?>
@@ -87,5 +127,7 @@ if (isset($_POST['envoie'])) {
         }
         ?>
     </div>
+</div>
+    </main>
 </body>
 </html>

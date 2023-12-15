@@ -10,51 +10,53 @@ if(!$_SESSION['mdp']){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../style/style_admin/afficher_act.css">
-    <link rel="stylesheet" href="../../style/general/bouton.css">
     <link rel="stylesheet" href="../../style/general/navbar.css">
     <link rel="stylesheet" href="../../style/general/scrollbar.css">
+    <link rel="stylesheet" href="../../style/general/general.css">
     <title>Afficher les activités</title>
 </head>
 <body>
 
      <!-- début menu -->
-  <header>
-    <nav>
-        <ul class='nav-bar'>
-            <li class='logo'></li>
-            <input type='checkbox' id='check' />
-            <span class="menu">
-                <li class="dropdown">
-                    <a href="gerer.php">Membres</a>
-                    <div class="dropdown-content">
-                        <a href="membre.php">Participant</a>
-                        <a href="../espace_resp/responsable.php">Responsable</a>
-                        <a href="#">Participation</a> <!-- A faire -->
-                    </div>
-                </li>
-                <li class="dropdown">
-                <a href="../espace_admin/activite/activite.php">Activités</a>
-                    <div class="dropdown-content">
-                        <a href="../espace_admin/update/publier_act.php">Publier une activite</a>
-                    </div>
-                <li class="dropdown">
-                    <a href="../espace_admin/update/ajouter_resp.php">Ajouter un responsable</a>
-                    </div>
-                <li class="dropdown">
-                    <a href="../espace_admin/update/publier_act.php">Publier une nouvelle activité</a>
-                    </div>
-                </li>
-                <li><a href="../espace_admin/connexion/connexion.php">Déconnexion</a></li>
-                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
-            </span>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-        </ul>
-    </nav>
-  </header>
+    <header class="header">
+    <a class="logo">FATALYS</a>
+    <nav class="navbar">
+            <a href="../index.php">Accueil</a>
+            <div class="dropdown">
+                <a href="#" class="with-dropdown">Activité</a>
+                <i class="fa fa-caret-down"></i>
+                <div class="dropdown-content">
+                    <a href="activite.php">Afficher</a>
+                    <a href="../update/publier_act.php">Publier</a>
+                    <a href="../update/modifier_act.php">Modifier</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="with-dropdown">Membres</a>
+                <i class="fa fa-caret-down"></i>
+                <div class="dropdown-content">
+                    <a href="../gerer.php">Afficher</a>
+                    <a href="../membre.php">Participant</a>
+                    <a href="#">Participation</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="with-dropdown">Responsable</a>
+                <i class="fa fa-caret-down"></i>
+                <div class="dropdown-content">
+                    <a href="../espace_resp/responsable.php">Afficher</a>
+                    <a href="../espace_admin/update/ajouter_resp.php">Ajouter</a>
+                </div>
+            </div>
+            <a href="../espace_admin/connexion/deconnexion.php">Déconnection</a>
+        </nav>
+    </header>
     <!-- fin menu -->
-
+<main class="test">
     <h1>Liste des activités</h1>
+    <div class="test2">
     <?php
     $recupAct = $bdd->query('SELECT * FROM activite');
     while ($activite = $recupAct->fetch()) {
@@ -78,6 +80,8 @@ if(!$_SESSION['mdp']){
         <?php
     }
     ?>
+    </div>
+
     <br>
 
 
@@ -89,5 +93,8 @@ if(!$_SESSION['mdp']){
     <span><B>Retour</B> </span>
   </button>
 </a>
+</main>
+
+<script src="../../JS/navbar.js"></script>
 </body>
 </html>
