@@ -25,51 +25,61 @@ if (isset($_POST['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../style/style_admin/afficher_membre.css">
     <link rel="stylesheet" href="../style/general/navbar.css">
     <link rel="stylesheet" href="../style/general/bouton.css">
+    <link rel="stylesheet" href="../style/general/footer.css">
+    <link rel="stylesheet" href="../style/general/general.css">
     <link rel="stylesheet" href="../style/general/scrollbar.css">
     <title>Afficher tous les membres</title>
 </head>
 <body>
-      <!-- début menu -->
-  <header>
-    <nav>
-        <ul class='nav-bar'>
-            <li class='logo'><a href='#'><img src='../background/logo.png'/></a></li>
-            <input type='checkbox' id='check' />
-            <span class="menu">
-                <li class="dropdown">
-                    <a href="gerer.php">Membres</a>
-                    <div class="dropdown-content">
-                        <a href="membre.php">Participant</a>
-                        <a href="../espace_resp/responsable.php">Responsable</a>
-                        <a href="#">Participation</a> <!-- A faire -->
-                    </div>
-                </li>
-                <li class="dropdown">
-                <a href="../espace_admin/activite/activite.php">Activités</a>
-                    <div class="dropdown-content">
-                        <a href="../espace_admin/update/publier_act.php">Publier une activite</a>
-                    </div>
-                <li class="dropdown">
-                    <a href="../espace_admin/update/ajouter_resp.php">Ajouter un responsable</a>
-                    </div>
-                <li class="dropdown">
-                    <a href="../espace_admin/update/publier_act.php">Publier une nouvelle activité</a>
-                    </div>
-                </li>
-                <li><a href="../espace_admin/connexion/connexion.php">Déconnexion</a></li>
-                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
-            </span>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-        </ul>
-    </nav>
-  </header>
+     <!-- début menu -->
+<header class="header">
+    <a class="logo">FATALYS</a>
+    <nav class="navbar">
+            <a href="index.php">Accueil</a>
+            <div class="dropdown">
+                <a href="#" class="with-dropdown">Activité</a>
+                <i class="fa fa-caret-down"></i>
+                <div class="dropdown-content">
+                    <a href="../espace_admin/activite/activite.php">Afficher</a>
+                    <a href="../espace_admin/update/publier_act.php">Publier</a>
+                    <a href="../espace_admin/update/modifier_act.php">Modifier</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="with-dropdown">Membres</a>
+                <i class="fa fa-caret-down"></i>
+                <div class="dropdown-content">
+                    <a href="membre.php">Participant</a>
+                    <a href="#">Participation</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="with-dropdown">Responsable</a>
+                <i class="fa fa-caret-down"></i>
+                <div class="dropdown-content">
+                    <a href="../espace_resp/responsable.php">Afficher</a>
+                    <a href="../../espace_admin/update/ajouter_resp.php">Ajouter</a>
+                </div>
+            </div>
+            <a href="../espace_membre/connexion/deconnexion.php">Déconnection</a>
+        </nav>
+    </header>
     <!-- fin menu -->
 
+    <section class="membre">
+        <div class="membre-content">
+            <h1>Manifestation FATALYS</h1>
+            <p><b>Liste des membres</b></p>
+            <a href="#main" class="bn3637 bn37">Explorer</a>
+        </div>
+    </section>
+    
+    <main class="test">
     <section class="padding">
-    <h1>Liste des membres</h1>
     <?php
     $recupUsers = $bdd->query('SELECT id, prenom, nom, mail, telephone, mdp, role FROM participant');
     while ($user = $recupUsers->fetch()) {
@@ -83,20 +93,10 @@ if (isset($_POST['id'])) {
                     <p><B>Telephone : </B><?= $user['telephone']; ?></p>
                     <p><B>Mot de passe : </B><?= $user['mdp']; ?></p>
                 </div>
-                <!-- Début Bouton Modifier -->
                 <div class="user-actions">
-                    <a href="../espace_admin/connexion/modifier_membre.php?id=<?= $user['id']; ?>"> Modifier</a>
+                    <button class="noselect" type="submit" name="id" value="<?= $user['id']; ?>">Bannir</button>
+                    <a href="../espace_admin/connexion/modifier_membre.php?id=<?= $user['id']; ?>">Modifier</a>
                 </div>
-                <!-- Fin Bouton modifier -->
-                <!-- Debut Bouton Supprimer -->
-                
-                <button class="button" type="submit" name="id" value="<?= $user['id']; ?>">
-                <svg viewBox="0 0 15 17.5" height="17.5" width="15" xmlns="http://www.w3.org/2000/svg" class="icon">
-                <path transform="translate(-2.5 -1.25)" d="M15,18.75H5A1.251,1.251,0,0,1,3.75,17.5V5H2.5V3.75h15V5H16.25V17.5A1.251,1.251,0,0,1,15,18.75ZM5,5V17.5H15V5Zm7.5,10H11.25V7.5H12.5V15ZM8.75,15H7.5V7.5H8.75V15ZM12.5,2.5h-5V1.25h5V2.5Z" id="Fill"></path>
-                </svg>
-                </button>
-
-                <!-- Fin Bouton Supprimer -->
             </div>
         </form>
         <?php
@@ -113,5 +113,12 @@ if (isset($_POST['id'])) {
   </button>
 </a>
 </section>
+</main>
+
+<div class="bar-sp"></div>
+<footer>
+  <p>© FATALYS 2023 - 2024</p>
+</footer>
+<script src="../JS/navbar.js"></script>
 </body>
 </html>

@@ -13,8 +13,9 @@ if (!$_SESSION['mdp']) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../style/style_admin/index.css">
-    <link rel="stylesheet" href="../style/general/general.css">
+    <link rel="stylesheet" href="../style/general/bouton.css">
     <link rel="stylesheet" href="../style/general/navbar.css">
+    <link rel="stylesheet" href="../style/general/general.css">
     <title>Home</title>
 </head>
 <body>
@@ -49,10 +50,20 @@ if (!$_SESSION['mdp']) {
                     <a href="../espace_admin/update/ajouter_resp.php">Ajouter</a>
                 </div>
             </div>
-            <a href="../espace_admin/connexion/deconnexion.php">Déconnection</a>
+            <a href="../espace_admin/connexion/deconnexion.php">Déconnexion</a>
         </nav>
     </header>
     <!-- fin menu -->
+
+
+
+    <section class="index-admin">
+        <div class="index-admin-content">
+            <h1>Manifestation FATALYS</h1>
+            <p><b>Venez découvrir nos différentes activités !</b></p>
+            <a href="../espace_admin/activite/activite.php" class="bn3637 bn37">Suivant -></a>
+        </div>
+    </section>
 
 
 

@@ -1,6 +1,12 @@
 <?php
 $bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
 
+// Définir des valeurs par défaut
+$titre = '';
+$description = '';
+$date = '';
+$responsable = '';
+
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $getid = $_GET['id'];
 
@@ -32,19 +38,24 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     } else {
         echo "Aucun article trouvé";
     }
-} else {
-    echo "Aucun identifiant trouvé";
 }
+// }else {
+//     echo "Aucun identifiant trouvé";
+//  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../style/style_admin/modifier_act.css">
     <link rel="stylesheet" href="../../style/general/bouton.css">
-    <link rel="stylesheet" href="../../style/general/navbar.css" class="css">
+    <link rel="stylesheet" href="../../style/general/navbar.css">
+    <link rel="stylesheet" href="../../style/general/scrollbar.css">
+    <link rel="stylesheet" href="../../style/general/footer.css">
     <link rel="stylesheet" href="../../style/general/card.css">
+    <link rel="stylesheet" href="../../style/general/general.css">
     <title>Modifier l'article</title>
 </head>
 <body>
@@ -67,7 +78,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <a href="#" class="with-dropdown">Membres</a>
                 <i class="fa fa-caret-down"></i>
                 <div class="dropdown-content">
-                    <a href="../gerer.php">Afficher</a>
                     <a href="../membre.php">Participant</a>
                     <a href="#">Participation</a>
                 </div>
@@ -85,12 +95,19 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     </header>
     <!-- fin menu -->
 
-    <main></main>
+    <section class="modifier-act">
+        <div class="modifier-act-content">
+            <h1>Manifestation FATALYS</h1>
+            <p><b>Modification des activités</b></p>
+            <a href="#main" class="bn3637 bn37">Explorer</a>
+        </div>
+    </section>
 
 
+    <div class="container">
+    <div class="main" id="main">
     <div class="card">
-    <h1>Modifier une activité</h1>
-    <form method="post">
+    <form method="post" class="card-form">        
         <p><b>Titre</b></p>
         <input type="text" name="titre" value="<?= $titre; ?>">
         <br><br>
@@ -104,18 +121,26 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         <input type="time" name="creneau" value="<?= $date ?>">
         <br><br>
         <p><b>Responsable :</b></p>
-        <select name="responsable" required style="height: 20px; width: 60%;"> <!-- Ajustez la hauteur selon vos besoins -->
+        <select name="responsable" required style="height: 20px; width: 100%;"> <!-- Ajustez la hauteur selon vos besoins -->
             <?php foreach ($responsables as $r) : ?>
                 <option value="<?= $r; ?>" <?= ($r == $responsable) ? 'selected' : ''; ?>>
                     <?= $r; ?>
                 </option>
             <?php endforeach; ?>
         </select>
-        <div class="button-container">
-            <button class="button" type="submit" name="valider">Modifier</button>
-            <a href="../activite/activite.php" class="button" id="btn">Retour</a>
+        <div class="btn_act">
+        <button class="bn3637 bn37 type="submit" name="valider">Modifier</button>
+        <a href="../activite/activite.php" class="bn3637 bn37"><- Retour</a>
         </div>
     </form>
+    </div>
 </div>
+</div>
+<div class="bar-sp"></div>
+<footer>
+  <p>© FATALYS 2023 - 2024</p>
+</footer>
+
+<script src="../../JS/navbar.js"></script>
 </body>
 </html>

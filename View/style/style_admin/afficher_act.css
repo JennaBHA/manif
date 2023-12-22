@@ -1,6 +1,6 @@
 .test {
     height: 100vh;
-    margin-top: 5em;
+    margin-top: 1em;
 }
 
 .test2 {
@@ -10,22 +10,22 @@
     align-items: center;
 }
 
-h1 {
-    color: #ffffff;
-    font-size: 24px;
-    margin: 10px;
+/* h1 {
+    color: #ffffff; */
+    /* font-size: 24px; */
+    /* margin: 10px; */
     /* padding: 15px; */
-    text-align: center;
-    font-size: 35px;
+    /* text-align: center; */
+    /* font-size: 35px; */
     /* text-decoration: underline; */
     /* margin-top: 10px; */
-}
+/* } */
 
-h2 {
+/* h2 {
     color: #ffffff;
     font-size: 24px;
     margin: 0;
-}
+} */
 
 p {
     color: #ffffff;
@@ -94,3 +94,83 @@ button {
         width: calc(50% - 20px); /* Deux activités par ligne sur les écrans plus petits */
     }
 }
+
+
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.aff-activite-admin {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    background-image: url("https://images.unsplash.com/photo-1607962837359-5e7e89f86776?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: 100%;
+    position: relative;
+     font-size: 18px;
+}
+
+.aff-activite-admin::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.822); 
+}
+
+.aff-activite-admin p {
+    font-size: 20px;
+}
+.aff-activite{
+    height: 100vh;
+}
+
+.aff-activite-admin-content {
+    max-width: 500px;
+    z-index: 1;
+}
+
+.aff-activite-admin-content {
+    max-width: 1000px;
+    z-index: 1;
+}
+
+.aff-activite-admin-content h2 {
+    padding: 2px;
+    font-size: 20px;
+}
+
+
+.aff-activite-admin {
+    height: 100vh;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    border-bottom: 2px solid white; 
+    position: relative; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+.aff-activite-admin-content h1 {
+    color: #fff;
+    font-size: 25px;
+}
+
+.aff-activite-admin-content b {
+    color: #88bcff;
+    font-size: 20px;
+}
+
+
+
+
+

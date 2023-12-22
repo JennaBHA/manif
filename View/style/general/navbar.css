@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #081b29;
+    background-color: transparent;
     color: #ededed;
 }
 
@@ -19,18 +19,16 @@ body {
     left: 0;
     width: 100%;
     padding: 5px 5%;
-    background: #00000081;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
     position: fixed;
-    backdrop-filter: blur(5px);
     transition: background-color 0.5s ease-in-out;
 }
 
 .header.scrolled {
-    backdrop-filter: blur(10xpx);
+    backdrop-filter: blur(20px);
     background-color: #00000088; 
 }
 

@@ -44,11 +44,14 @@ if (isset($_POST['envoie'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../style/style_admin/publier_act.css">
-    <!-- <link rel="stylesheet" href="../../style/general/bouton.css"> -->
-    <link rel="stylesheet" href="../../style/general/navbar.css">
+    <link rel="stylesheet" href="../../style/general/bouton.css">
     <link rel="stylesheet" href="../../style/general/card.css">
+    <link rel="stylesheet" href="../../style/general/navbar.css">
+    <link rel="stylesheet" href="../../style/general/footer.css">
     <link rel="stylesheet" href="../../style/general/scrollbar.css">
+    <link rel="stylesheet" href="../../style/general/general.css">
     <title>Publier une activité</title>
 </head>
 <body>
@@ -83,41 +86,49 @@ if (isset($_POST['envoie'])) {
                     <a href="../../espace_admin/update/ajouter_resp.php">Ajouter</a>
                 </div>
             </div>
-            <a href="../connexion/deconnexion.php">Déconnection</a>
+            <a href="../connexion/deconnexion.php">Déconnexion</a>
         </nav>
     </header>
     <!-- fin menu -->
 
+    <section class="publier-act-admin">
+        <div class="publier-act-admin-content">
+            <h1>Manifestation FATALYS</h1>
+            <p><b>Publication des activités</b></p>
+            <a href="#main" class="bn3637 bn37">Explorer</a>
+        </div>
+    </section>
 
-<main class="test">
-    <div class="ajout">
-        <h1>Publier une activité</h1>
+    <div class="container">
+    <div class="main" id="main">
+        <main class="test">
+            <div class="ajout">
+        <!-- <h1>Publier une activité</h1> -->
         <div class="test2">
-        <form method="post">
-            <p><B>Titre de l'activité :</B></p>
+        <div class="card">
+    <form method="post" class="card-form">            
+        <h3><B>Titre de l'activité :</B></h3>
             <input type="text" name="titre" placeholder="Titre" required>
             <br><br>
-            <p><B>Description de l'activité</B></p>
+            <h3><B>Description de l'activité</B></h3>
             <textarea name="description" placeholder="Description" required></textarea>
             <br><br>
-            <p><B>Responsable de l'activité :</B></p>
+            <h3><B>Responsable de l'activité :</B></h3>
             <select name="responsable" id="monselect" required>
                 <?php foreach ($responsables as $responsable) : ?>
                     <option value="<?php echo $responsable; ?>"><?php echo $responsable; ?></option>
                 <?php endforeach; ?>
             </select>
             <br><br>
-            <p><B>Date : </B></p>
+            <h3><B>Date : </B></h3>
             <input type="date" name="date" required>
             <br><br>
-            <p><B>Heure :</B></p>
+            <h3><B>Heure :</B></h3>
             <input type="time" name="creneau" autocomplete="off" placeholder="Créneau">
-            <br><br>
-            <div class="envoie-activite-container">
-    <button class="envoie" type="submit" name="envoie" style="text-decoration: none;">Envoie</button>
-    <a href="../activite/activite.php" class="envoie-act" style="text-decoration: none;">Activité</a>
-</div>
-
+            <div class="btn_act">
+            <button class="bn3637 bn37" type="submit" name="envoie">Envoie</button>
+            <a href="../activite/activite.php" class="bn3637 bn37"><- Retour</a>
+            </div>
         </form>
     </div>
     <div id="message-container">
@@ -127,7 +138,15 @@ if (isset($_POST['envoie'])) {
         }
         ?>
     </div>
+    </div>
 </div>
+    </div>
+    </div>
     </main>
+    <div class="bar-sp"></div>
+<footer>
+<p>© FATALYS 2023 - 2024</p>
+</footer>
+    <script src="../../JS/navbar.js"></script>
 </body>
 </html>

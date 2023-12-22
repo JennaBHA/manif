@@ -13,12 +13,12 @@ body {
     background-repeat: no-repeat;
   }
   
-  .responsable {
+  .ajt-responsable {
     height: 100vh;
     display: flex;
     align-items: center;
     padding: 0 10%;
-    background-image: url("https://images.unsplash.com/photo-1666979289472-96e6d3245b84?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-image: url("https://images.unsplash.com/photo-1666979290238-2d862b573345?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: 100%;
     position: relative;
      font-size: 18px;
@@ -26,7 +26,7 @@ body {
 
   }
   
-  .responsable::after {
+  .ajt-responsable::after {
     content: '';
     position: absolute;
     top: 0;
@@ -36,29 +36,29 @@ body {
     background: rgba(0, 0, 0, 0.822); 
   }
   
-  .responsable p {
+  .ajt-responsable p {
     font-size: 20px;
   }
-  .responsable{
+  .ajt-responsable{
     height: 100vh;
   }
   
-  .responsable-content {
+  .ajt-responsable-content {
     max-width: 500px;
     z-index: 1;
   }
   
-  .responsable-content {
+  .ajt-responsable-content {
     max-width: 1000px;
     z-index: 1;
   }
   
-  .responsable-content h2 {
+  .ajt-responsable-content h2 {
     padding: 2px;
     font-size: 20px;
   }
   
-  .responsable {
+  .ajt-responsable {
     height: 100vh;
     font-size: 28px;
     display: flex;
@@ -71,12 +71,12 @@ body {
     background-size: cover; 
   }
   
-  .responsable-content h1 {
+  .ajt-responsable-content h1 {
     color: #fff;
     font-size: 25px;
   }
   
-  .responsable-content b {
+  .ajt-responsable-content b {
     color: #88bcff;
     font-size: 20px;
   }
@@ -176,3 +176,52 @@ a {
     text-decoration: none;
     font-weight: bold;
 }
+
+
+
+
+.card {
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .card form {
+    margin: 0; 
+  }
+  
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .btn_act {
+    align-items: center;
+    margin-left: 80px;
+  }
+
+  textarea, input[type="text"], input[type="time"], input[type="date"] {
+    width: 100%; 
+    height: 25px;
+    border-radius: 5px;
+}
+
+select[name="role"] {
+  width: 100%; 
+  height: 25px;
+  border-radius: 5px;
+}
+
+input[type="password"] {
+  width: 100%;
+  height: 20px;
+  border-radius: 5px 5px 5px;
+} 
