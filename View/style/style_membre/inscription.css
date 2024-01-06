@@ -183,10 +183,6 @@ body {
     transition: 0.3s;
   }
   
-  a:hover {
-    color: coral;
-  }
-  
   .btn {
     display: block;
     width: 100%;
@@ -248,3 +244,53 @@ body {
   }
   
   /* ----------------------------------------- */
+
+  .bouton_retour {
+    background-color: #3EB2FD;
+    border-radius: 100px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #FFFFFF; 
+    cursor: pointer;
+    display: inline-flex;
+    font-family: CircularStd,sans-serif;
+    font-size: 1rem;
+    height: auto;
+    justify-content: center;
+    line-height: 1.5;
+    padding: 6px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease-out;
+  }
+  
+  .bouton_retour:hover {
+    background: #2ea0ec;
+  }
+  
+  .bouton {
+    background-color: #3EB2FD;
+    border-radius: 100px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #FFFFFF; 
+    cursor: pointer;
+    display: inline-flex;
+    font-family: CircularStd,sans-serif;
+    font-size: 1rem;
+    height: auto;
+    justify-content: center;
+    line-height: 1.5;
+    padding: 6px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease-out;
+  }
+  
+  .bouton:hover {
+    background: #2ea0ec;
+  }

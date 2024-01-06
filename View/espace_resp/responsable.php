@@ -46,7 +46,7 @@ if (isset($_POST['id'])) {
                 <div class="dropdown-content">
                     <a href="../espace_admin/activite/activite.php">Afficher</a>
                     <a href="../espace_admin/update/publier_act.php">Publier</a>
-                    <a href="../espace_admin/update/modifier_act.php">Modifier</a>
+                    <!-- <a href="../espace_admin/update/modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
@@ -54,7 +54,7 @@ if (isset($_POST['id'])) {
                 <i class="fa fa-caret-down"></i>
                 <div class="dropdown-content">
                     <a href="../espace_admin/membre.php">Participant</a>
-                    <a href="#">Participation</a>
+                    <a href="../espace_admin/update/gerer_participant.php">Participation</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -65,7 +65,7 @@ if (isset($_POST['id'])) {
                     <a href="../espace_admin/update/ajouter_resp.php">Ajouter</a>
                 </div>
             </div>
-            <a href="../espace_admin/connexion/deconnexion.php">Déconnection</a>
+            <a href="../espace_admin/connexion/deconnexion.php">Déconnexion</a>
         </nav>
     </header>
     <!-- fin menu -->
@@ -74,7 +74,7 @@ if (isset($_POST['id'])) {
         <div class="responsable-content">
             <h1>Manifestation FATALYS</h1>
             <p><b>Liste des responsables</b></p>
-            <a href="#main" class="bn3637 bn37">Explorer</a>
+            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
         </div>
     </section>
     <main class="test">
@@ -116,5 +116,6 @@ if (isset($_POST['id'])) {
 
 
 <script src="../JS/navbar.js"></script>
+<script src="../JS/buttom.js"></script>
 </body>
 </html>

@@ -66,16 +66,15 @@ if (isset($_POST['envoie'])) {
                 <div class="dropdown-content">
                     <a href="../activite/activite.php">Afficher</a>
                     <a href="publier_act.php">Publier</a>
-                    <a href="modifier_act.php">Modifier</a>
+                    <!-- <a href="modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#" class="with-dropdown">Membres</a>
                 <i class="fa fa-caret-down"></i>
                 <div class="dropdown-content">
-                    <a href="../gerer.php">Afficher</a>
                     <a href="../membre.php">Participant</a>
-                    <a href="#">Participation</a>
+                    <a href="../update/gerer_participant.php">Participation</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -95,7 +94,7 @@ if (isset($_POST['envoie'])) {
         <div class="publier-act-admin-content">
             <h1>Manifestation FATALYS</h1>
             <p><b>Publication des activités</b></p>
-            <a href="#main" class="bn3637 bn37">Explorer</a>
+            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
         </div>
     </section>
 
@@ -103,7 +102,6 @@ if (isset($_POST['envoie'])) {
     <div class="main" id="main">
         <main class="test">
             <div class="ajout">
-        <!-- <h1>Publier une activité</h1> -->
         <div class="test2">
         <div class="card">
     <form method="post" class="card-form">            
@@ -143,10 +141,12 @@ if (isset($_POST['envoie'])) {
     </div>
     </div>
     </main>
+    <br>
     <div class="bar-sp"></div>
 <footer>
 <p>© FATALYS 2023 - 2024</p>
 </footer>
     <script src="../../JS/navbar.js"></script>
+    <script src="../../JS/buttom.js"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@ if (isset($_POST['valider'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../style/general/bouton.css">
+    <!-- <link rel="stylesheet" href="../../style/general/bouton.css"> -->
     <link rel="stylesheet" href="../../style/style_admin/connexion.css">
     <title>Connexion</title>
 </head>
@@ -51,11 +51,11 @@ if (isset($_POST['valider'])) {
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <input type="text" name="pseudo" autocomplete="off" placeholder="pseudo">
+                        <input type="text" name="pseudo" autocomplete="off" placeholder="Prénom">
                     </div>
                 </div>
 
-                <div class="error-message"><?php echo $pseudo_error; ?></div> <!-- Message d'erreur pseudo -->
+                <div class="error-message"><?php echo $pseudo_error; ?></div> 
 
                 <div class="input-div pass">
                     <div class="i">
@@ -66,20 +66,10 @@ if (isset($_POST['valider'])) {
                     </div>
                 </div>
 
-                <div class="error-message"><?php echo $mdp_error; ?></div> <!-- Message d'erreur mot de passe -->
-<!-- 
-                <div class="button-container">
-                    <input type="submit" name="valider" value="Connexion">
-                    <a href="../accueil.php" id="btn">Accueil</a>
-                </div> -->
+                <div class="error-message"><?php echo $mdp_error; ?></div> 
 
-                <div class="button-container">
-            <button class="button" type="submit" name="valider">Se connecter</button>
-        </div>
-
-        <div class="button-retour">
-            <a href="../accueil.php" class="button-retour" id="bouton-retour">Retour</a>
-        </div>
+            <button class="bouton" type="submit" name="valider">Se connecter</button>
+            <a href="../accueil.php" class="bouton_retour" >Retour</a>
 
 
         </div>

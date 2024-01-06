@@ -209,41 +209,11 @@
   fill: rgb(255, 255, 255);
 }
 
-/* .button:hover > .icon {
-  transform: scale(1.5);
-} */
-
-/* .button:hover > .icon path {
-  fill: rgb(168, 7, 7);
-} */
-
 .button:hover::after {
   visibility: visible;
   opacity: 1;
   top: -160%;
 }
-
-/* ------------------------------------------- */
-/* Bouton modifier */
-
-/* .user-actions a { */
-  /* display: inline-block; */
-  /* padding: 10px; Espace intérieur du bouton */
-  /* border-radius: 5px; Coins arrondis */
-  /* text-decoration: none; Pas de soulignement */
-/* } */
-
-/* .user-actions a svg { */
-  /* fill: #3498db; Couleur de remplissage de l'icône par défaut */
-  /* margin-right: 5px; Marge à droite de l'icône */
-  /* transition: fill 0.3s; Ajout de transition pour un effet en douceur */
-  /* cursor: default; */
-/* } */
-
-/* .user-actions a:hover svg { */
-  /* fill: #f1c40f; Couleur de remplissage de l'icône au survol */
-/* } */
-
 
 /* --------------------------------------------------------- */
 .button_retour {
@@ -275,7 +245,6 @@
  }
  
  .button_retour:hover {
-  /* box-shadow:   9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff; */
   transform: translateY(-2px);
  }
 
@@ -303,20 +272,20 @@
  .envoie-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* Espace entre les boutons */
+  margin-top: 20px;
 }
 
 /* --------------------------------------------------------------- */
 /* Bouton activite et envoie de publier_act.php */
  .envoie-activite-container {
   display: flex;
-  margin-top: 20px; /* Espace entre les boutons */
+  margin-top: 20px; 
   margin-left: 50px;
 }
 
 .envoie {
   font-size: 17px;
-  padding: 0.5em 1em; /* Ajustez la largeur des boutons */
+  padding: 0.5em 1em; 
   border: transparent;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   background: dodgerblue;
@@ -336,7 +305,7 @@
 
 .envoie-act {
   font-size: 17px;
-  padding: 0.5em 1em; /* Ajustez la largeur des boutons */
+  padding: 0.5em 1em;
   border: transparent;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   background: dodgerblue;

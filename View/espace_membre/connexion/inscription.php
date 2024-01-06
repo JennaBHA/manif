@@ -31,13 +31,12 @@ if(isset($_POST['envoi'])){
         $nom = htmlspecialchars($nom);
         $prenom = htmlspecialchars($prenom);
         $mail = htmlspecialchars($mail);
-        $telephone = intval($telephone); // Utilisez intval pour convertir en entier
+        $telephone = intval($telephone); 
         $mdp = sha1($mdp);
 
         $inserUser = $bdd->prepare('INSERT INTO participant(nom, prenom, mail, telephone, mdp) VALUES(?, ?, ?, ?, ?)');
         $inserUser->execute(array($nom, $prenom, $mail, $telephone, $mdp));
 
-        // Vous devez récupérer l'ID du nouvel utilisateur après l'insertion
         $recupPart = $bdd->prepare('SELECT id FROM participant WHERE nom = ? AND prenom = ?');
         $recupPart->execute(array($nom, $prenom));
 
@@ -49,19 +48,15 @@ if(isset($_POST['envoi'])){
             $_SESSION['mail'] = $mail;
             $_SESSION['telephone'] = $telephone;
             $_SESSION['mdp'] = $mdp;
-            $formSubmitted = true; // Marquer que le formulaire a été soumis avec succès
+            $formSubmitted = true; 
+            $roleId = 1; 
+    $userId = $result['id']; 
 
-            $roleId = 1; // L'ID du rôle "participant(e)"
-    $userId = $result['id']; // L'ID de l'utilisateur que vous venez d'insérer
-
-    // $insertUserRole = $bdd->prepare('INSERT INTO role(id, id) VALUES(?, ?)');
-    // $insertUserRole->execute(array($userId, $roleId));
 
         }
     }
 }
 
-// Réinitialiser les valeurs du formulaire uniquement si le formulaire a été soumis avec succès
 if ($formSubmitted) {
     unset($_SESSION['nomValue']);
     unset($_SESSION['prenomValue']);
@@ -70,7 +65,7 @@ if ($formSubmitted) {
     unset($_SESSION['mdpValue']);
 
     header("Location: connexion.php");
-    exit; // Assure que le script s'arrête ici pour la redirection
+    exit; 
 }
 ?>
 
@@ -83,7 +78,6 @@ if ($formSubmitted) {
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../style/style_membre/inscription.css">
-    <link rel="stylesheet" href="../../style/general/bouton.css">
     <title>Inscription</title>
 </head>
 <body>
@@ -157,10 +151,9 @@ if ($formSubmitted) {
             <div class="error-message"><?php if(!empty($mail_error)) echo $mail_error; ?></div>
             <div class="error-message"><?php if(!empty($mdp_error)) echo $mdp_error; ?></div>
 
-            <div class="button-container">
-                <button class="button" name="envoi" value="S'inscrire">S'inscrire</button>
-                <a href="../accueil.php" class="button" id="btn">Retour</a>
-            </div>
+        
+                <button class="bouton" name="envoi" value="S'inscrire">S'inscrire</button>
+                <a href="../accueil.php" class="bouton_retour" id="btn">Retour</a>
             <br>
             <p>Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous !</a></p>
         </form>

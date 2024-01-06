@@ -32,16 +32,15 @@ if(!$_SESSION['mdp']){
                 <div class="dropdown-content">
                     <a href="activite.php">Afficher</a>
                     <a href="../update/publier_act.php">Publier</a>
-                    <a href="../update/modifier_act.php">Modifier</a>
+                    <!-- <a href="../update/modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#" class="with-dropdown">Membres</a>
                 <i class="fa fa-caret-down"></i>
                 <div class="dropdown-content">
-                    <a href="../gerer.php">Afficher</a>
                     <a href="../membre.php">Participant</a>
-                    <a href="#">Participation</a>
+                    <a href="../update/gerer_participant.php">Participation</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -52,7 +51,7 @@ if(!$_SESSION['mdp']){
                     <a href="../update/ajouter_resp.php">Ajouter</a>
                 </div>
             </div>
-            <a href="../espace_admin/connexion/deconnexion.php">Déconnexion</a>
+            <a href="../connexion/deconnexion.php">Déconnexion</a>
         </nav>
     </header>
     <!-- fin menu -->
@@ -61,7 +60,7 @@ if(!$_SESSION['mdp']){
         <div class="aff-activite-admin-content">
             <h1>Manifestation FATALYS</h1>
             <p><b>Liste des activités</b></p>
-            <a href="#main" class="bn3637 bn37">Explorer</a>
+            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
         </div>
     </section>
 
@@ -106,5 +105,6 @@ if(!$_SESSION['mdp']){
 </footer>
 
 <script src="../../JS/navbar.js"></script>
+<script src="../../JS/buttom.js"></script>
 </body>
 </html>

@@ -71,7 +71,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <div class="dropdown-content">
                     <a href="../activite/activite.php">Afficher</a>
                     <a href="publier_act.php">Publier</a>
-                    <a href="modifier_act.php">Modifier</a>
+                    <!-- <a href="modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
@@ -129,13 +129,14 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <?php endforeach; ?>
         </select>
         <div class="btn_act">
-        <button class="bn3637 bn37 type="submit" name="valider">Modifier</button>
         <a href="../activite/activite.php" class="bn3637 bn37"><- Retour</a>
+        <button class="bn3637 bn37 type="submit" name="valider">Modifier</button>
         </div>
     </form>
     </div>
 </div>
 </div>
+<br>
 <div class="bar-sp"></div>
 <footer>
   <p>© FATALYS 2023 - 2024</p>

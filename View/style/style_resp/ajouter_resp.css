@@ -115,7 +115,6 @@ body {
     align-items: center;
 }
 
-/* Style pour le bouton "Bannir le membre" */
 button.noselect {
     cursor: pointer;
     width: 75px;
@@ -170,7 +169,6 @@ button.noselect:focus {
     outline: none;
 }
 
-/* Style pour le lien "Modifier" */
 a {
     color: blue;
     text-decoration: none;

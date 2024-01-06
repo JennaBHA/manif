@@ -10,130 +10,84 @@
 }
 
 body {
-    font-size: 1rem;
-    font-family: 'Helvetica', sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-#user-info {
+.index-admin {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    background-image: url("https://images.unsplash.com/photo-1591824353737-61237487acf4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: 100%;
+    position: relative;
+     font-size: 18px;
+}
+
+.index-admin::after {
+    content: '';
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 16px;
-    color: #333;
-    text-align: right;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.822); 
 }
 
-/* ---------------------------------------------------------------------------------------------------------------- */
-
-/* Style titre et le reste */
-h1 {
-    text-align: center;
-    color: #333;
+.index-admin p {
+    font-size: 20px;
+}
+.index{
+    height: 100vh;
 }
 
-ul {
-    list-style:none;
+.index-admin-content {
+    max-width: 500px;
+    z-index: 1;
 }
 
-/* ---------------------------------------------------------------------------------------------------------------- */
-
-.main-content {
-padding:1rem;
+.index-content {
+    background-color: #000;
+    max-width: 1000px;
+    z-index: 1;
+    margin-top: 10px;
+    margin-left: 20vh;
 }
 
-/* ---------------------------------------------------------------------------------------------------------------- */
-
-/* Style pour la section des dernières activités */
-.latest-activities {
-    background-color: #3333336b;
-    border-radius: 5% 5% 5%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-    width: 500px; /* Définissez la largeur souhaitée */
-    display: inline-block; /* Changez la valeur pour inline-block */
+.index-content h2 {
+    padding: 2px;
+    font-size: 32px;
 }
 
-/* Style pour le titre "Dernières activités publiées" */
-.latest-activities h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
+
+.index-admin {
+    height: 100vh;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    position: relative; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
 }
 
-/* Style pour chaque activité */
-.activite {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
+.index-admin-content h1 {
+    color: #fff;
+    font-size: 25px;
 }
 
-/* Style pour le titre de l'activité */
-.activite h3 {
-    font-size: 18px;
-    color: #333;
+.index-admin-content b {
+    color: #88bcff;
+    font-size: 20px;
 }
 
-/* Style pour la description de l'activité */
-.activite p {
-    font-size: 16px;
-    color: #666;
-}
+.index-content h1{
+    font-size: 30px;
+  }
 
-/* Style pour la date de l'activité */
-.activite p:last-child {
-    font-size: 14px;
-    color: #999;
-}
 
-/* ---------------------------------------------------------------------------------------------------------------- */
 
-/* Style pour la section des dernières participant */
-.latest-membre {
-    background-color: #3333336b;
-    border-radius: 5% 5% 5%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-    width: 500px; /* Définissez la largeur souhaitée */
-    display: inline-block; /* Changez la valeur pour inline-block */
-    /* margin-top:80px; */
-    /* margin-left:150px; */
-}
 
-/* Style pour le titre "Dernières activités publiées" */
-.latest-membre h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Style pour chaque activité */
-.membre {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-/* Style pour le titre de l'activité */
-.membre h3 {
-    font-size: 18px;
-    color: #333;
-}
-
-/* Style pour la description de l'activité */
-.membre p {
-    font-size: 16px;
-    color: #666;
-}
-
-/* Style pour la date de l'activité */
-.membre p:last-child {
-    font-size: 14px;
-    color: #999;
-} 

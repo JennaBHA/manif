@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+/* Géneral*/
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    outline:none;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.gerer-part {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    background-image: url('../../background/participation.jpg');
+    background-size: 100%;
+    position: relative;
+     font-size: 18px;
+}
+
+.gerer-part::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.822); 
+}
+
+.gerer-part p {
+    font-size: 20px;
+}
+.gerer{
+    height: 100vh;
+}
+
+.gerer-part-content {
+    max-width: 500px;
+    z-index: 1;
+}
+
+.gerer-content {
+    background-color: #000;
+    max-width: 1000px;
+    z-index: 1;
+    margin-top: 10px;
+    margin-left: 20vh;
+}
+
+.gerer-content h2 {
+    padding: 2px;
+    font-size: 32px;
+}
+
+
+.gerer-part {
+    height: 100vh;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    border-bottom: 2px solid white; 
+    position: relative; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+.gerer-part-content h1 {
+    color: #fff;
+    font-size: 25px;
+}
+
+.gerer-part-content b {
+    color: #88bcff;
+    font-size: 20px;
+}
+
+.gerer-content h1{
+    font-size: 30px;
+  }
+
+  .affichage {
+    padding: 40px;
+  }
+
+  .position_btn {
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .btn_gerer {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn_gerer:hover {
+    background-color: #333;
+    color: #fff;
+    transition: all 0.2s ease-out;
+  }
+
+  .select_gerer {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+
+  h3 {
+    margin-bottom: 20px;
+  }
+

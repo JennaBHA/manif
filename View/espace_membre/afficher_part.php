@@ -3,33 +3,82 @@ session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=manif;', 'root', '');
 if (!isset($_SESSION['mdp'])) {
     header('Location: ../connexion/connexion.php');
-    exit(); // Assurez-vous que le script se termine après la redirection
+    exit(); 
 }
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/afficher_act.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/general/navbar.css">
+    <link rel="stylesheet" href="../style/general/scrollbar.css">
+    <link rel="stylesheet" href="../style/general/bouton.css">
+    <link rel="stylesheet" href="../style/general/footer.css">
+    <link rel="stylesheet" href="../style/general/general.css">
+    <link rel="stylesheet" href="../style/style_membre/afficher_part.css">
     <title>Afficher les activités</title>
 </head>
 <body>
-    <?php
-    $recupAct = $bdd->query('SELECT * FROM activite');
-    while ($activite = $recupAct->fetch()) {
-        ?>
-        <div class="activite" style="border: 1px solid black">
-            <h1><?= $activite['titre']; ?></h1> 
-            <p><?= $activite['description']; ?></p> 
-            <a href="../espace_membre/participation.php?id=<?= $activite['id']; ?>">
-                <button style="color: black; background-color: red;" onclick="alert('Votre participation a été prise en compte')">Participer</button>
-            </a>
+    <!-- début menu -->
+    <header class="header">
+    <a class="logo">FATALYS</a>
+    <nav class="navbar">
+        <a href="index.php">Accueil</a>
+        <a href="afficher_part.php" >Activité</a>
+        <a href="../espace_membre/connexion/deconnexion.php">Déconnexion</a>
+    </nav>
+</header>
+    <!-- fin menu -->
+
+    <section class="aff-part">
+        <div class="aff-part-content">
+            <h1>Manifestation FATALYS</h1>
+            <p><b>Liste des activités</b></p>
+            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
         </div>
-        <br>
+    </section>
+
+    <div class="affichage">
+        <div class="main" id="main">
         <?php
-    }
-    ?>
-    <a href="index.php" class="envoie-button">retour</a>
+        $recupAct = $bdd->query('SELECT * FROM activite');
+        while ($activite = $recupAct->fetch()) {
+            $isInscrit = false;
+
+            if (isset($_SESSION['id'])) {
+                $participant_id = $_SESSION['id'];
+                $checkInscription = $bdd->prepare('SELECT * FROM inscription WHERE participant_id = ? AND activite_id = ?');
+                $checkInscription->execute([$participant_id, $activite['id']]);
+                $isInscrit = ($checkInscription->rowCount() > 0);
+            }
+            ?>
+            <div class="activite">
+                <h1><?= $activite['titre']; ?></h1> 
+                <p>Description : <?= $activite['description']; ?></p> 
+                <p>Date : <?= $activite['date']; ?></p>
+                <p>Heure : <?= $activite['heure']; ?></p>
+                <p>Responsable : <?= $activite['responsable']; ?></p>
+                <p>Nombre de participants : <?= $activite['participants']; ?></p>
+                <p>Horaire : <?= $activite['horaire']; ?></p>
+                <?php if ($isInscrit): ?>
+                    <button class="deja_inscrit" onclick="alert('Vous êtes déjà inscrit à cette activité')">Déjà inscrit</button>
+                    <a href="../espace_membre/desinscription.php?id=<?= $activite['id']; ?>">
+                        <button class="desinscription" onclick="alert('Vous vous êtes désinscrit de l\'activité')">Se désinscrire</button>
+                    </a>
+                <?php else: ?>
+                    <a href="../espace_membre/participation.php?id=<?= $activite['id']; ?>">
+                        <button class="bouton_participer" onclick="alert('Votre participation a été prise en compte')">Participer</button>
+                    </a>
+                <?php endif; ?>
+            </div>
+            <?php
+        }
+        ?>
+        </div>
+        <a href="index.php" class="envoie-button">Retour</a>
+    </div>
 </body>
 </html>

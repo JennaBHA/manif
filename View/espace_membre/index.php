@@ -1,9 +1,12 @@
 <?php
 // Sécuriser le site pour que seule l'admin puisse y accéder
 session_start();
-if (!$_SESSION['mdp']) {
+if (!isset($_SESSION['mdp'])) {
     header('Location: connexion.php');
+    exit();
 }
+
+$isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'];
 
 // Connexion à la base de données
 $bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '');
@@ -15,39 +18,42 @@ $query->bindParam(':id', $id, PDO::PARAM_INT);
 $query->execute();
 $result = $query->fetch(PDO::FETCH_ASSOC);
 $prenom = $result['prenom'];
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/general/navbar.css">
     <link rel="stylesheet" href="../style/general/general.css">
-    <!-- <link href="../../style/index.css rel="stylesheet"> -->
+    <link rel="stylesheet" href="../style/style_membre/index.css">
+    <link rel="stylesheet" href="../style/general/bouton.css">
+
     <title>Home</title>
 </head>
 <body>
-    <!-- Debut menu -->
-    <header>
-    <nav>
-        <ul class='nav-bar'>
-            <li class='logo'><a href='#'><img src='../background/logo.png'/></a></li>
-            <input type='checkbox' id='check' />
-            <span class="menu">
-                <li><a href="../espace_admin/membre.php">Afficher les membres</a></li>
-                <li><a href="../espace_admin/activite/activite.php">Afficher les participations</a></li>
-                <li><a href="../espace_admin/update/publier_act.php">Publier une nouvelle activité</a></li>
-                <li><a href="../espace_admin/activite/activite.php">Afficher les activités</a></li>
-                <li><a href="../espace_admin/connexion/connexion.php">Deconnexion</a></li>
-                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
-            </span>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-        </ul>
+
+<header class="header">
+    <a class="logo">FATALYS</a>
+    <nav class="navbar">
+        <a href="index.php">Accueil</a>
+        <a href="../espace_membre/afficher_part.php" >Activité</a>
+        <a href="../espace_membre/connexion/deconnexion.php">Déconnexion</a>
     </nav>
-    </header>
+</header>
 
-    <h1>Bienvenue dans votre espace <?php echo $prenom; ?></h1>
+<section class="index-admin">
+    <div class="index-admin-content">
+        <h1>Manifestation FATALYS</h1>
+        <p><b>Bienvenue dans votre espace <?php echo $prenom; ?></b></p>
+        <a href="../espace_membre/afficher_part.php" class="bn3637 bn37">Suivant -></a>
+    </div>
+</section>
 
-    <!-- Le reste de votre contenu -->
+<!-- Le reste de votre contenu -->
+
 </body>
 </html>

@@ -30,16 +30,15 @@ if (!$_SESSION['mdp']) {
                 <div class="dropdown-content">
                     <a href="../espace_admin/activite/activite.php">Afficher</a>
                     <a href="../espace_admin/update/publier_act.php">Publier</a>
-                    <a href="../espace_admin/update/modifier_act.php">Modifier</a>
+                    <!-- <a href="../espace_admin/update/modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#" class="with-dropdown">Membres</a>
                 <i class="fa fa-caret-down"></i>
                 <div class="dropdown-content">
-                    <a href="gerer.php">Afficher</a>
                     <a href="membre.php">Participant</a>
-                    <a href="#">Participation</a>
+                    <a href="../espace_admin/update/gerer_participant.php">Participation</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -65,24 +64,7 @@ if (!$_SESSION['mdp']) {
         </div>
     </section>
 
-
-
-
-
-        <!-- Responsable Dropdown -->
-        <!-- <div class="dropdown">
-            <button class="dropbtn">Responsable
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="membre.php">Afficher</a>
-                <a href="../espace_admin/update/ajouter_resp.php">Ajouter</a>
-            </div>
-        </div>
-        <a href="../espace_admin/connexion/deconnexion.php">Déconnexion</a>
-    </div> -->
-    <!-- fin menu -->
-
+    <!-- rajouter un carroussel  -->
     <script src="../JS/navbar.js"></script>
 </body>
 </html>

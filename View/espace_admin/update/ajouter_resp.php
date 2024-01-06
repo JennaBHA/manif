@@ -13,10 +13,8 @@ if (!isset($_SESSION['mdp'])) {
 }
 
 $message = '';
-// Créez un tableau vide pour stocker la liste des responsables.
 $responsables = array();
 
-// Récupérez la liste des responsables depuis la base de données.
 $requeteResponsables = $bdd->query('SELECT nom FROM responsable');
 while ($responsable = $requeteResponsables->fetch()) {
     $responsables[] = $responsable;
@@ -68,7 +66,7 @@ if (isset($_POST['envoie'])) {
                 <div class="dropdown-content">
                     <a href="../activite/activite.php">Afficher</a>
                     <a href="../update/publier_act.php">Publier</a>
-                    <a href="../update/modifier_act.php">Modifier</a>
+                    <!-- <a href="../update/modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
@@ -76,7 +74,7 @@ if (isset($_POST['envoie'])) {
                 <i class="fa fa-caret-down"></i>
                 <div class="dropdown-content">
                     <a href="../membre.php">Participant</a>
-                    <a href="#">Participation</a>
+                    <a href="../update/gerer_participant.php">Participation</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -87,7 +85,7 @@ if (isset($_POST['envoie'])) {
                     <a href="../update/ajouter_resp.php">Ajouter</a>
                 </div>
             </div>
-            <a href="../espace_admin/connexion/deconnexion.php">Déconnection</a>
+            <a href="../connexion/deconnexion.php">Déconnexion</a>
         </nav>
     </header>
     <!-- fin menu -->
@@ -98,7 +96,7 @@ if (isset($_POST['envoie'])) {
         <div class="ajt-responsable-content">
             <h1>Manifestation FATALYS</h1>
             <p><b>Modification des responsables</b></p>
-            <a href="#main" class="bn3637 bn37">Explorer</a>
+            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
         </div>
     </section>
     <div class="container">
@@ -141,6 +139,7 @@ if (isset($_POST['envoie'])) {
 </footer>
 
     <script src="../../JS/navbar.js"></script>
+    <script src="../../JS/buttom.js"></script>
 </body>
 </html>
         

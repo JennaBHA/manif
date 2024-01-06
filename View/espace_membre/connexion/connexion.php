@@ -36,7 +36,7 @@ if(isset($_POST['envoi'])){
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../style/style_membre/connexion.css">
-    <link rel="stylesheet" href="../../style/general/bouton.css">
+    <!-- <link rel="stylesheet" href="../../style/general/bouton.css"> -->
     <title>connexion</title>
 </head>
 <body>
@@ -64,10 +64,11 @@ if(isset($_POST['envoi'])){
             </div>
             <div class="error-message"><?php echo $mail_error; ?></div>
                 <div class="error-message"><?php echo $mdp_error; ?></div>
-            <div class="button-container">
-                <button class="button" name="envoi" value="Se connecter">Se connecter</button>
-                <a href="../accueil.php" class="button" id="btn">Retour</a>
-            </div>
+
+                
+            <button class="bouton" type="submit" name="envoi">Se connecter</button>
+            <a href="../accueil.php" class="bouton_retour" >Retour</a>
+
             <br>
             <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous !</a></p>
         </form>
