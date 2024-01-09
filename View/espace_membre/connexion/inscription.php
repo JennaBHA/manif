@@ -2,7 +2,6 @@
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-// Variable pour suivre l'état de la soumission
 $formSubmitted = false;
 
 if(isset($_POST['envoi'])){
@@ -12,7 +11,6 @@ if(isset($_POST['envoi'])){
     $telephone = isset($_POST['telephone']) ? trim($_POST['telephone']) : "";
     $mdp = isset($_POST['mdp']) ? trim($_POST['mdp']) : "";
 
-    // Validation des champs
     $nomError = $prenomError = $mailError = $telephoneError = $mdpError = "";
 
     if(empty($nom) || empty($prenom) || empty($mail) || empty($telephone) || empty($mdp)){

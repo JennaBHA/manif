@@ -32,7 +32,6 @@ if(!$_SESSION['mdp']){
                 <div class="dropdown-content">
                     <a href="activite.php">Afficher</a>
                     <a href="../update/publier_act.php">Publier</a>
-                    <!-- <a href="../update/modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
@@ -55,21 +54,8 @@ if(!$_SESSION['mdp']){
         </nav>
     </header>
     <!-- fin menu -->
-
-    <section class="aff-activite-admin">
-        <div class="aff-activite-admin-content">
-            <h1>Manifestation FATALYS</h1>
-            <p><b>Liste des activités</b></p>
-            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
-        </div>
-    </section>
-
-
-
 <div class="main" id="main">
-<main class="test">
-    <!-- <h1>Liste des activités</h1> -->
-    <div class="test2">
+  <div class="card">
     <?php
     $recupAct = $bdd->query('SELECT * FROM activite');
     while ($activite = $recupAct->fetch()) {

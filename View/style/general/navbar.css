@@ -59,33 +59,6 @@ body {
 }
 
 /* ----------------------------------------------- */
-/* ... (autres styles inchangés) ... */
-
-/* .navbar .dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.navbar .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #22313f;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.navbar .dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.navbar .dropdown:hover .dropdown-content {
-    display: block;
-} */
-
-
 .navbar .dropdown {
     position: relative;
     display: inline-block;
@@ -117,4 +90,3 @@ body {
 .navbar .dropdown:hover .dropdown-content {
     display: block;
 }
-

@@ -21,14 +21,13 @@ while ($responsable = $requeteResponsables->fetch()) {
 }
 
 if (isset($_POST['envoie'])) {
-    if (!empty($_POST['nom']) && !empty($_POST['role']) && !empty($_POST['mdp'])) {
+    if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mdp'])) {
         $nom = htmlspecialchars($_POST['nom']);
         $prenom = htmlspecialchars($_POST['prenom']);
-        $role = htmlspecialchars($_POST['role']);
         $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT); // Hash du mot de passe
 
-        $inserAct = $bdd->prepare('INSERT INTO responsable(nom, prenom, role, mdp) VALUES(:nom, :prenom, :role, :mdp)');
-        $inserAct->execute(array(':nom' => $nom, ':prenom' => $prenom, ':role' =>  $role, ':mdp' => $mdp));
+        $inserAct = $bdd->prepare('INSERT INTO responsable(nom, prenom, mdp) VALUES(:nom, :prenom, :mdp)');
+        $inserAct->execute(array(':nom' => $nom, ':prenom' => $prenom, ':mdp' => $mdp));
 
         $message = '<p style="color: green;">Le responsable a bien été ajouté</p>';
     } else {
@@ -66,7 +65,6 @@ if (isset($_POST['envoie'])) {
                 <div class="dropdown-content">
                     <a href="../activite/activite.php">Afficher</a>
                     <a href="../update/publier_act.php">Publier</a>
-                    <!-- <a href="../update/modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
@@ -90,16 +88,8 @@ if (isset($_POST['envoie'])) {
     </header>
     <!-- fin menu -->
 
-
-
-    <section class="ajt-responsable">
-        <div class="ajt-responsable-content">
-            <h1>Manifestation FATALYS</h1>
-            <p><b>Modification des responsables</b></p>
-            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
-        </div>
-    </section>
     <div class="container">
+        <div class="test">
     <div class="main" id="main">
     <div class="card">
     <form method="post" class="card-form">        
@@ -109,18 +99,11 @@ if (isset($_POST['envoie'])) {
         <h3>Prenom</h3>
         <input type="text" name="prenom" placeholder="Prénom">
         <br><br>
-        <h3>Rôle</h3>
-        <select name="role">
-            <option value="responsable">Responsable</option>
-            <option value="administrateur">Administrateur</option>
-            <option value="participant">Participant</option>
-        </select>
-        <br><br>
         <h3>Mot de passe</h3>
         <input type="password" name="mdp" placeholder="Mot de passe">
         <br><br>
         <div class="button-container">
-            <button class="button" type="submit" name="envoie">Envoie</button>
+            <button class="button" type="submit" name="envoie" style="color: blue;">Envoie</button>
             <a href="../index.php" class="button" id="btn">Retour</a>
         </div>
     </form>
@@ -132,6 +115,10 @@ if (isset($_POST['envoie'])) {
         }
         ?>
     </div>
+    </div>
+    </div>
+    </div>
+
 
     <div class="bar-sp"></div>
 <footer>

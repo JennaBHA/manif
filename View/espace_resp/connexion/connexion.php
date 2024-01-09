@@ -9,7 +9,7 @@ if(isset($_POST['envoi'])){
         $prenom = $_POST['prenom'];
         $mdp = $_POST['mdp'];
 
-        $recupPart = $bdd->prepare('SELECT id, nom, prenom, mdp FROM responsable WHERE nom = ? AND prenom = ?'); // Removed mdp condition here
+        $recupPart = $bdd->prepare('SELECT id, nom, prenom, mdp FROM responsable WHERE nom = ? AND prenom = ?'); 
         $recupPart->execute(array($nom, $prenom));
 
         if($recupPart->rowCount() > 0){
@@ -80,8 +80,8 @@ if(isset($_POST['envoi'])){
             <div class="error-message"><?php echo $nom_error; ?></div>
             <div class="error-message"><?php echo $mdp_error; ?></div>
             <div class="button-container">
-                <button class="button" name="envoi" value="Se connecter">Se connecter</button>
-                <a href="../accueil.php" class="button" id="btn">Retour</a>
+                <button class="bouton" name="envoi" value="Se connecter">Se connecter</button>
+                <a href="../accueil.php" class="bouton_retour">Retour</a>
             </div>
         </form>
     </div>

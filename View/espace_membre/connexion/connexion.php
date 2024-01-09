@@ -1,7 +1,7 @@
 <?php
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-$mail_error = $mdp_error = ""; // Initialize error messages
+$mail_error = $mdp_error = "";
 
 if(isset($_POST['envoi'])){
     if(!empty($_POST['mail']) AND !empty($_POST['mdp'])){
@@ -16,7 +16,7 @@ if(isset($_POST['envoi'])){
             $_SESSION['mail'] = $mail;
             $_SESSION['mdp'] = $mdp;
             $_SESSION['id'] = $donnees['id'];
-            $_SESSION['prenom'] = $donnees['prenom']; // Enregistrez le prénom dans la session
+            $_SESSION['prenom'] = $donnees['prenom']; 
             header('Location: ../index.php');
         } else {
             $mail_error = "Votre mot de passe ou mail est incorrect";
@@ -36,7 +36,6 @@ if(isset($_POST['envoi'])){
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../style/style_membre/connexion.css">
-    <!-- <link rel="stylesheet" href="../../style/general/bouton.css"> -->
     <title>connexion</title>
 </head>
 <body>

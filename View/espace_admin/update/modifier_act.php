@@ -20,7 +20,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         $date = $activiteInfo['date'];
         $responsable = $activiteInfo['responsable'];
 
-        // Récupération des noms des responsables depuis la base de données
         $recupResponsables = $bdd->query('SELECT nom FROM responsable');
         $responsables = $recupResponsables->fetchAll(PDO::FETCH_COLUMN);
         $recupResponsables->closeCursor();
@@ -39,9 +38,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         echo "Aucun article trouvé";
     }
 }
-// }else {
-//     echo "Aucun identifiant trouvé";
-//  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +67,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <div class="dropdown-content">
                     <a href="../activite/activite.php">Afficher</a>
                     <a href="publier_act.php">Publier</a>
-                    <!-- <a href="modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
@@ -121,7 +116,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         <input type="time" name="creneau" value="<?= $date ?>">
         <br><br>
         <p><b>Responsable :</b></p>
-        <select name="responsable" required style="height: 20px; width: 100%;"> <!-- Ajustez la hauteur selon vos besoins -->
+        <select name="responsable" required style="height: 20px; width: 100%;">
             <?php foreach ($responsables as $r) : ?>
                 <option value="<?= $r; ?>" <?= ($r == $responsable) ? 'selected' : ''; ?>>
                     <?= $r; ?>

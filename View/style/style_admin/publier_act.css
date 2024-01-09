@@ -12,7 +12,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.publier-act-admin {
+/* .publier-act-admin {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -78,16 +78,16 @@ body {
   font-size: 20px;
 }
 
-.test {
+.body_cacrd_head {
   margin-top: 1em;
 }
 
-.test2{
+.body_card{
   display: flex;
   flex-direction: row;
   justify-items: center;
   align-items: center;
-}
+} */
 
 h3 {
     color: #fff;
@@ -146,13 +146,63 @@ h4 {
 }
 
 .container {
-  display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh; 
+  display: flex;
 }
 
 .btn_act {
   align-items: center;
   margin-left: 55px;
 }
+
+/* --------------------------------------------------------------------- */
+.activity-form {
+  margin-top: 70px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+} 

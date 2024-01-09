@@ -46,7 +46,6 @@ if (isset($_POST['id'])) {
                 <div class="dropdown-content">
                     <a href="../espace_admin/activite/activite.php">Afficher</a>
                     <a href="../espace_admin/update/publier_act.php">Publier</a>
-                    <!-- <a href="../espace_admin/update/modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
@@ -70,14 +69,7 @@ if (isset($_POST['id'])) {
     </header>
     <!-- fin menu -->
 
-    <section class="responsable">
-        <div class="responsable-content">
-            <h1>Manifestation FATALYS</h1>
-            <p><b>Liste des responsables</b></p>
-            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
-        </div>
-    </section>
-    <main class="test">
+    <main class="body_resp">
     <div class="container">
     <div class="main" id="main">
     <?php
@@ -90,7 +82,6 @@ if (isset($_POST['id'])) {
                     <p> Nom : <?= $user['nom']; ?>  </p>
                     <p>Prénom : <?= $user['prenom']; ?></p>
                     <p>Mot de passe : <?= $user['mdp']; ?></p>
-                    <p>Rôle : <?= $user['role']; ?></p>
                 </div>
                 <div class="user-actions">
                     <button class="noselect" type="submit" name="id" value="<?= $user['id']; ?>">Bannir</button>

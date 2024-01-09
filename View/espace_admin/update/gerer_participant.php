@@ -30,8 +30,6 @@ if (!isset($_SESSION['mdp'])) {
     <title>Gérer les participants</title>
 </head>
 <body>
-
-
 <!-- début menu -->
 <header class="header">
     <a class="logo">FATALYS</a>
@@ -66,16 +64,6 @@ if (!isset($_SESSION['mdp'])) {
         </nav>
     </header>
     <!-- fin menu -->
-
-
-    <section class="gerer-part">
-        <div class="gerer-part-content">
-            <h1>Manifestation FATALYS</h1>
-            <p><b>Les participations</b></p>
-            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
-        </div>
-    </section>
-
 
     <div class="affichage">
     <div class="main" id="main">

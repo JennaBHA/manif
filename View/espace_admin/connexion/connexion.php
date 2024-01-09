@@ -15,7 +15,7 @@ if (isset($_POST['valider'])) {
             $_SESSION['pseudo'] = $pseudo_saisi;
             $_SESSION['mdp'] = $mdp_saisi;
             header('Location: ../index.php');
-            exit; // Terminer le script après la redirection
+            exit; 
         } else {
             $mdp_error = "Votre mot de passe est incorrect";
         }
@@ -34,7 +34,6 @@ if (isset($_POST['valider'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="../../style/general/bouton.css"> -->
     <link rel="stylesheet" href="../../style/style_admin/connexion.css">
     <title>Connexion</title>
 </head>

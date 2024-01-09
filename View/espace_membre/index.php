@@ -1,5 +1,4 @@
 <?php
-// Sécuriser le site pour que seule l'admin puisse y accéder
 session_start();
 if (!isset($_SESSION['mdp'])) {
     header('Location: connexion.php');
@@ -8,11 +7,9 @@ if (!isset($_SESSION['mdp'])) {
 
 $isAdmin = isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'];
 
-// Connexion à la base de données
 $bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '');
 
-// Récupérer le prénom de l'utilisateur connecté
-$id = $_SESSION['id']; // Assurez-vous que $_SESSION['id'] contient l'ID de l'utilisateur connecté
+$id = $_SESSION['id']; 
 $query = $bdd->prepare("SELECT prenom FROM participant WHERE id = :id");
 $query->bindParam(':id', $id, PDO::PARAM_INT);
 $query->execute();
@@ -52,8 +49,5 @@ $prenom = $result['prenom'];
         <a href="../espace_membre/afficher_part.php" class="bn3637 bn37">Suivant -></a>
     </div>
 </section>
-
-<!-- Le reste de votre contenu -->
-
 </body>
 </html>

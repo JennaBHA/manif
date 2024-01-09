@@ -4,13 +4,12 @@ $bdd = new PDO('mysql:host=localhost;dbname=manif', 'root', '');
 
 if (!isset($_SESSION['mdp'])) {
     header('Location: ../espace_admin/connexion/connexion.php');
-    exit(); // Arrête l'exécution du script après la redirection
+    exit(); 
 }
 
-// Vérifier si l'utilisateur est un administrateur
-$participant_id = $_SESSION['participant_id']; // Utilisez la variable correcte
+$participant_id = $_SESSION['participant_id']; 
 $query_admin = $bdd->prepare("SELECT * FROM participant WHERE id = ?");
-$query_admin->execute([$participant_id]); // Utilisez $participant_id au lieu de $id
+$query_admin->execute([$participant_id]); 
 $participant = $query_admin->fetch();
 
 if (!$participant || $participant['id'] != 1) {
@@ -18,8 +17,7 @@ if (!$participant || $participant['id'] != 1) {
     exit();
 }
 
-// Récupérer les participations à afficher
-$participations_query = $bdd->query('SELECT * FROM participations'); // Assurez-vous que la table est correcte
+$participations_query = $bdd->query('SELECT * FROM participations'); 
 
 ?>
 

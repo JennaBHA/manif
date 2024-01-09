@@ -1,6 +1,6 @@
-.test {
+.body_membre {
     height: 100vh;
-    margin-top: 2em;
+    margin-top: 3em;
   }
   
 /* ------------------------------------------------------------------------------ */
@@ -19,76 +19,6 @@ body {
     background-repeat: no-repeat;
   }
   
-  .membre {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 10%;
-    background-image: url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-    background-size: 100%;
-    position: relative;
-     font-size: 18px;
-     border-bottom: 2px solid white; 
-
-  }
-  
-  .membre::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.822); 
-  }
-  
-  .membre p {
-    font-size: 20px;
-  }
-  .membre{
-    height: 100vh;
-  }
-  
-  .membre-content {
-    max-width: 500px;
-    z-index: 1;
-  }
-  
-  .membre-content {
-    max-width: 1000px;
-    z-index: 1;
-  }
-  
-  .membre-content h2 {
-    padding: 2px;
-    font-size: 20px;
-  }
-  
-  .membre {
-    height: 100vh;
-    font-size: 28px;
-    display: flex;
-    align-items: center;
-    padding: 0 10%;
-    border-bottom: 2px solid white; 
-    position: relative; 
-    background-attachment: fixed; 
-    background-repeat: no-repeat; 
-    background-size: cover; 
-  }
-  
-  .membre-content h1 {
-    color: #fff;
-    font-size: 25px;
-  }
-  
-  .membre-content b {
-    color: #88bcff;
-    font-size: 20px;
-  }
-
-
-
   textarea, input[type="text"], input[type="time"], input[type="date"] {
     width: 100%; 
     height: 25px;
@@ -172,9 +102,7 @@ a {
 } 
 
 .position_btn {
-  padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
 }
-

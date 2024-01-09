@@ -46,7 +46,6 @@ if (isset($_POST['id'])) {
                 <div class="dropdown-content">
                     <a href="../espace_admin/activite/activite.php">Afficher</a>
                     <a href="../espace_admin/update/publier_act.php">Publier</a>
-                    <!-- <a href="../espace_admin/update/modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
@@ -70,15 +69,7 @@ if (isset($_POST['id'])) {
     </header>
     <!-- fin menu -->
 
-    <section class="membre">
-        <div class="membre-content">
-            <h1>Manifestation FATALYS</h1>
-            <p><b>Liste des membres</b></p>
-            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
-        </div>
-    </section>
-
-    <main class="test">
+    <main class="body_membre">
     <div class="main" id="main">
     <section class="padding">
     <?php

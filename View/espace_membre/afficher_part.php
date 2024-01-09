@@ -32,16 +32,9 @@ if (!isset($_SESSION['mdp'])) {
     </nav>
 </header>
     <!-- fin menu -->
-
-    <section class="aff-part">
-        <div class="aff-part-content">
-            <h1>Manifestation FATALYS</h1>
-            <p><b>Liste des activités</b></p>
-            <a href="javascript:void(0);" class="bn3637 bn37" onclick="scrollToMain()">Explorer</a>
-        </div>
-    </section>
-
+   
     <div class="affichage">
+        <div class="test">
         <div class="main" id="main">
         <?php
         $recupAct = $bdd->query('SELECT * FROM activite');
@@ -78,7 +71,7 @@ if (!isset($_SESSION['mdp'])) {
         }
         ?>
         </div>
-        <a href="index.php" class="envoie-button">Retour</a>
+        </div>
     </div>
 </body>
 </html>

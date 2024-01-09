@@ -30,7 +30,6 @@ if (!$_SESSION['mdp']) {
                 <div class="dropdown-content">
                     <a href="../espace_admin/activite/activite.php">Afficher</a>
                     <a href="../espace_admin/update/publier_act.php">Publier</a>
-                    <!-- <a href="../espace_admin/update/modifier_act.php">Modifier</a> -->
                 </div>
             </div>
             <div class="dropdown">
