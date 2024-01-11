@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 06 jan. 2024 à 13:52
+-- Généré le : jeu. 11 jan. 2024 à 08:13
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -33,21 +33,34 @@ CREATE TABLE `activite` (
   `description` text NOT NULL,
   `heure` time NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp(),
-  `responsable` varchar(255) DEFAULT NULL,
+  `responsable` int(11) DEFAULT NULL,
   `max_participants` int(11) DEFAULT NULL,
   `participants` int(11) DEFAULT 0,
-  `horaire` varchar(255) DEFAULT NULL
+  `horaire` varchar(255) DEFAULT NULL,
+  `id_responsable` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `activite`
 --
 
-INSERT INTO `activite` (`id`, `titre`, `description`, `heure`, `date`, `responsable`, `max_participants`, `participants`, `horaire`) VALUES
-(9, 'karaoké', 'Chant pour tous le monde', '13:00:00', '2023-11-05', NULL, NULL, 2, NULL),
-(43, 'choux', 'modification 15122023', '11:01:00', '3333-03-31', 'ben', NULL, 0, NULL),
-(44, '1111111', '1111111111111', '11:11:00', '2023-12-08', 'tokisaki', NULL, 0, NULL),
-(45, 'Foot', 'Terrain de sport ', '14:00:00', '2023-01-18', 'tokisaki', NULL, 0, NULL);
+INSERT INTO `activite` (`id`, `titre`, `description`, `heure`, `date`, `responsable`, `max_participants`, `participants`, `horaire`, `id_responsable`) VALUES
+(9, 'karaoké héhé', 'Chant pour tous le monde', '13:00:00', '2023-11-05', 0, NULL, 3, NULL, 5),
+(43, 'choux', 'modification 15122023', '11:01:00', '3333-03-31', 0, NULL, 0, NULL, NULL),
+(45, 'Foot', 'Terrain de sport ', '14:00:00', '2023-01-18', 0, NULL, 0, NULL, NULL),
+(46, 'foot de rue', 'foot de rue ', '12:23:00', '1111-11-11', 0, NULL, 0, NULL, NULL),
+(47, 'activité test', 'test', '12:00:00', '3234-02-12', 0, NULL, 0, NULL, NULL),
+(48, 'bonjour', 'bonjour', '12:00:00', '1212-12-12', 0, NULL, 0, NULL, NULL),
+(49, 'aaaaaaa', 'aaaaaaaa', '11:11:00', '0111-11-11', 0, NULL, 0, NULL, NULL),
+(50, '1111111111111111111', '111111111111111111111111111111', '11:11:00', '2024-01-10', 0, NULL, 0, NULL, NULL),
+(51, 'AZE', 'AZE', '12:00:00', '2004-12-12', 0, NULL, 0, NULL, NULL),
+(52, 'aaaa', 'aaaaa', '11:11:00', '2001-11-11', 34, NULL, 0, NULL, NULL),
+(53, 'bonnnn', 'bonnnn', '12:12:00', '2002-12-12', 34, NULL, 0, NULL, NULL),
+(54, 'jour', 'jour', '12:12:00', '1222-12-12', 34, NULL, 0, NULL, NULL),
+(55, 'jour', 'jour', '12:12:00', '1222-12-12', 34, NULL, 0, NULL, NULL),
+(56, 'jour', 'jour', '12:12:00', '1222-12-12', 34, NULL, 0, NULL, NULL),
+(57, 'jour', 'jour', '12:12:00', '1222-12-12', 34, NULL, 0, NULL, NULL),
+(58, 'AAAA', 'AAAA', '11:11:00', '0111-11-11', 34, NULL, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -61,6 +74,13 @@ CREATE TABLE `inscription` (
   `activite_id` int(11) NOT NULL,
   `etat` varchar(255) DEFAULT 'en attente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `inscription`
+--
+
+INSERT INTO `inscription` (`id`, `participant_id`, `activite_id`, `etat`) VALUES
+(3, 32, 9, 'en attente');
 
 -- --------------------------------------------------------
 
@@ -103,8 +123,7 @@ CREATE TABLE `participant` (
 --
 
 INSERT INTO `participant` (`id`, `nom`, `prenom`, `role`, `mail`, `mdp`, `telephone`) VALUES
-(32, 'BENHADJ', 'jenna', '', 'jenna@gmail.com', 'dff47fbb88ecd8e72ae626dbf47d919b55dff935', 101010101),
-(36, 'jenna', 'jenna', '', 'jenna@gmail.com', '48194805bacc199991299d9306ff8499b6e773ff', 909090909);
+(32, 'BENHADJ', 'jenna', '', 'jenna@gmail.com', 'dff47fbb88ecd8e72ae626dbf47d919b55dff935', 101010101);
 
 -- --------------------------------------------------------
 
@@ -137,7 +156,6 @@ CREATE TABLE `responsable` (
 --
 
 INSERT INTO `responsable` (`id`, `nom`, `prenom`, `role`, `mdp`) VALUES
-(4, 'ben', 'jenna', 'reponsable', '$2y$10$es0F4mdvp3iFYvMofZFHTeB6S9H/eOrVkJu2gCbTOswfDlVZje7m6'),
 (5, 'jenna', 'jenna', 'responsable', '$2y$10$0krpxbFE1fqmYNAIGF68KOt9bKSDGGQG1q5R1sJhYvqi6E2sKL0K6'),
 (6, 'jenna', 'jenna', 'responsable', '$2y$10$Wr1wox5GbbpI6vFJnUJxfuqf0bGqfPmpaZfBm4S89/7waipd4ZpK.'),
 (8, 'jenna', 'jenna', 'responsable', '$2y$10$sXPxk21an9E9zKUcSgpfJe5L7JZNqh1OxNeei5jIbnM//26YQdwBC'),
@@ -160,7 +178,10 @@ INSERT INTO `responsable` (`id`, `nom`, `prenom`, `role`, `mdp`) VALUES
 (25, 'jenna', 'jenna', 'responsable', '$2y$10$/nHMeDXeYgWKuYFfx92mru2OjEHqCP/zbaSmzyqaORcKHCkScZqvm'),
 (26, 'jenna', 'jenna', 'responsable', '$2y$10$ysa.c/u19BJ7.yWTyKt0mOktx6gPU91RoZzBuFyKl6DTBA.sjhqIG'),
 (27, 'jenna', 'jenna', 'responsable', '$2y$10$gZM9CSsysHC8XhYWkpgpruV/FS5uzMS.WQ1RzyREqgaDSKzsLkKWO'),
-(28, 'jenna', 'jenna', 'responsable', '$2y$10$HkOuOZBAWyFRruXnJCK5AuZ7zXnCV9k8wdRU8T8vSyydeIjw9AcbG');
+(28, 'jenna', 'jenna', 'responsable', '$2y$10$HkOuOZBAWyFRruXnJCK5AuZ7zXnCV9k8wdRU8T8vSyydeIjw9AcbG'),
+(32, 'bonjour', 'bonjour', '', '$2y$10$8gNuZ9kzYkogf.Uk3Juk9.uN.jH4qJHQmlmgX4Fd12/f5yu8Kf01y'),
+(33, 'BEN HADJ AMOR', 'Jenna', '', '$2y$10$GAmcPp6Wjbgj5GrbdmTtWe43DIMZKI0JrmyTmzQPSEteqytkJZvnO'),
+(34, 'BEIRADE', 'BEIRADE', '', '$2y$10$wxDB1DKgnsTvToWG/qyuFeFq81g0tgu3Y33GaQQIz0WfR4mHVddXO');
 
 -- --------------------------------------------------------
 
@@ -227,13 +248,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT pour la table `activite`
 --
 ALTER TABLE `activite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT pour la table `inscription`
 --
 ALTER TABLE `inscription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `participant`
@@ -251,7 +272,7 @@ ALTER TABLE `participation`
 -- AUTO_INCREMENT pour la table `responsable`
 --
 ALTER TABLE `responsable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT pour la table `role`

@@ -21,17 +21,20 @@
     }
 
     if (isset($_POST['envoie'])) {
-        if (!empty($_POST['titre']) && !empty($_POST['description']) && !empty($_POST['date'])) { // Ajout de la vérification de la date
+        if (!empty($_POST['titre']) && !empty($_POST['description']) && !empty($_POST['date'])) {
             $titre = htmlspecialchars($_POST['titre']);
             $description = nl2br(htmlspecialchars($_POST['description']));
             $date = date('Y-m-d', strtotime($_POST['date']));
             $heure = empty($_POST['creneau']) ? null : $_POST['creneau'];
-
-            $responsable = $_POST['responsable'];
-
-            $inserAct = $bdd->prepare('INSERT INTO activite(titre, description, date, heure, responsable) VALUES(:titre, :description, :date, :heure, :responsable)');
-            $inserAct->execute(array(':titre' => $titre, ':description' => $description, ':date' => $date, ':heure' => $heure, ':responsable' => $responsable));
-
+    
+            $responsableName = $_POST['responsable'];
+    
+            // Get the responsible ID based on the name
+            $responsableId = array_search($responsableName, $responsables);
+    
+            $inserAct = $bdd->prepare('INSERT INTO activite(titre, description, date, heure, responsable, id_responsable) VALUES(:titre, :description, :date, :heure, :responsableName, :responsableId)');
+            $inserAct->execute(array(':titre' => $titre, ':description' => $description, ':date' => $date, ':heure' => $heure, ':responsableName' => $responsableName, ':responsableId' => $responsableId));
+    
             $message = '<p style="color: green;">L\'activité a bien été envoyée</p>';
         } else {
             $message = '<p style="color: red;">Veuillez compléter tous les champs</p>';
